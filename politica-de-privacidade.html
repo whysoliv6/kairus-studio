@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Política de Privacidade da Kairus Studio.">
+  <title>Política de Privacidade | Kairus Studio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --color-primary: #F3390A;
+      --color-secondary: #FF5C33;
+      --color-dark: #090504;
+      --color-light: #EAEAEA;
+      --color-support: #9DABBC;
+      --radius-xl: 20px;
+      --radius-md: 6px;
+      --nav-height: 84px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-dark);
+      color: var(--color-light);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover { color: var(--color-secondary); text-decoration: underline; }
+
+    /* ── NAVBAR ── */
+    header {
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      right: 16px;
+      z-index: 1000;
+      background: rgba(9,5,4,0.62);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.07);
+      overflow: hidden;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      padding: 12px 28px;
+      gap: 40px;
+      max-width: 1820px;
+      margin: 0 auto;
+    }
+
+    .navbar-logo {
+      font-family: 'Schibsted Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 24px;
+      letter-spacing: -1.44px;
+      color: #EAEAEA;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .navbar-logo:hover { color: #EAEAEA; text-decoration: none; }
+
+    .navbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex: 1;
+    }
+
+    .navbar-nav a {
+      font-family: 'Schibsted Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+      color: rgba(234,234,234,0.68);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 180ms ease;
+    }
+
+    .navbar-nav a:hover { color: #EAEAEA; text-decoration: none; }
+
+    .navbar-cta { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+
+    .navbar-btn-solid {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--color-primary);
+      border: none;
+      border-radius: var(--radius-md);
+      padding: 10px 20px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.2s ease-out;
+    }
+
+    .navbar-btn-solid:hover {
+      background: var(--color-secondary);
+      box-shadow: 0 0 40px rgba(243,57,10,0.25);
+      transform: scale(1.02);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 1099px) {
+      .navbar-nav, .navbar-cta { display: none; }
+    }
+
+    @media (max-width: 639px) {
+      header { left: 10px; right: 10px; }
+      .navbar { padding: 12px 16px; }
+    }
+
+    /* ── CONTEÚDO ── */
+    .page-wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: calc(var(--nav-height) + 64px) 24px 96px;
+    }
+
+    .page-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+    }
+
+    .page-title {
+      font-family: 'Satoshi', sans-serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--color-light);
+      margin-bottom: 12px;
+    }
+
+    .page-updated {
+      font-size: 13px;
+      color: var(--color-support);
+      margin-bottom: 56px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .policy-section {
+      margin-bottom: 48px;
+    }
+
+    .policy-section h2 {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-light);
+      margin-bottom: 16px;
+      padding-top: 8px;
+    }
+
+    .policy-section p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba(234,234,234,0.78);
+      margin-bottom: 14px;
+    }
+
+    .policy-section ul {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .policy-section ul li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba(234,234,234,0.78);
+      margin-bottom: 6px;
+    }
+
+    .policy-section a {
+      color: var(--color-primary);
+    }
+
+    /* ── FOOTER MÍNIMO ── */
+    .page-footer {
+      background: #000;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .page-footer p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .page-footer a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 13px;
+      transition: color 0.2s ease;
+    }
+
+    .page-footer a:hover { color: #fff; text-decoration: none; }
+
+    .page-footer-links {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header role="banner">
+    <div class="navbar">
+      <a class="navbar-logo" href="/">Kairus Studio</a>
+      <nav class="navbar-nav" role="navigation" aria-label="Navegação principal">
+        <a href="/#sobre">Sobre nós</a>
+        <a href="/#projetos">Projetos</a>
+        <a href="/#metodo">Método</a>
+        <a href="/#faq">FAQ</a>
+      </nav>
+      <div class="navbar-cta">
+        <a href="/#contato" class="navbar-btn-solid">Falar com a gente</a>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+    <div class="page-wrapper">
+
+      <p class="page-label">✦ Legal</p>
+      <h1 class="page-title">Política de Privacidade</h1>
+      <p class="page-updated">Última atualização: junho de 2026</p>
+
+      <div class="policy-section">
+        <h2>1. Quem somos</h2>
+        <p>A Kairus Studio é um estúdio de design estratégico com sede no Ceará, Brasil. Somos responsáveis pelo tratamento dos dados pessoais coletados por meio deste site e de nossas comunicações.</p>
+        <p>Para dúvidas sobre esta política, entre em contato pelo e-mail: <a href="mailto:contato@kairusstudio.com">contato@kairusstudio.com</a></p>
+      </div>
+
+      <div class="policy-section">
+        <h2>2. Dados que coletamos</h2>
+        <p>Coletamos apenas os dados necessários para prestar nossos serviços e responder ao seu contato. Isso pode incluir:</p>
+        <ul>
+          <li>Nome e e-mail informados em formulários de contato</li>
+          <li>Dados de navegação (páginas visitadas, tempo de sessão) via ferramentas de análise</li>
+          <li>Informações sobre o projeto ou necessidade descritas por você no contato</li>
+        </ul>
+        <p>Não coletamos dados sensíveis nem dados de menores de 18 anos.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>3. Como usamos seus dados</h2>
+        <p>Utilizamos seus dados exclusivamente para:</p>
+        <ul>
+          <li>Responder ao seu contato e enviar orçamentos ou propostas</li>
+          <li>Entrar em contato para dar continuidade a uma negociação em aberto</li>
+          <li>Melhorar a experiência do site com base em dados agregados e anônimos</li>
+        </ul>
+        <p>Não utilizamos seus dados para envio de e-mails de marketing sem seu consentimento explícito.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>4. Compartilhamento de dados</h2>
+        <p>Não vendemos, alugamos ou compartilhamos seus dados pessoais com terceiros, exceto quando necessário para a prestação do serviço (como plataformas de e-mail ou ferramentas de comunicação utilizadas internamente) ou quando exigido por lei.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>5. Armazenamento e segurança</h2>
+        <p>Seus dados são armazenados em serviços de nuvem confiáveis e mantidos apenas pelo tempo necessário para a finalidade pela qual foram coletados. Aplicamos medidas técnicas razoáveis para proteger as informações contra acesso não autorizado.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>6. Seus direitos (LGPD)</h2>
+        <p>Nos termos da Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem direito a:</p>
+        <ul>
+          <li>Confirmar se tratamos seus dados pessoais</li>
+          <li>Acessar os dados que temos sobre você</li>
+          <li>Corrigir dados incompletos, inexatos ou desatualizados</li>
+          <li>Solicitar a anonimização, bloqueio ou eliminação de dados desnecessários</li>
+          <li>Revogar o consentimento dado, a qualquer momento</li>
+          <li>Solicitar a portabilidade dos seus dados</li>
+        </ul>
+        <p>Para exercer qualquer desses direitos, entre em contato pelo e-mail: <a href="mailto:contato@kairusstudio.com">contato@kairusstudio.com</a></p>
+      </div>
+
+      <div class="policy-section">
+        <h2>7. Cookies</h2>
+        <p>Este site pode utilizar cookies técnicos essenciais para o funcionamento correto das páginas e cookies de análise para entender como os visitantes navegam. Você pode configurar seu navegador para recusar cookies, mas isso pode afetar a experiência de navegação.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>8. Alterações nesta política</h2>
+        <p>Podemos atualizar esta Política de Privacidade periodicamente. Quando houver mudanças relevantes, atualizaremos a data no topo desta página. Recomendamos revisá-la de tempos em tempos.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>9. Contato</h2>
+        <p>Kairus Studio<br>
+        Ceará, Brasil<br>
+        E-mail: <a href="mailto:contato@kairusstudio.com">contato@kairusstudio.com</a></p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="page-footer" role="contentinfo">
+    <p>© 2026 Kairus Studio. Todos os direitos reservados.</p>
+    <div class="page-footer-links">
+      <a href="/">Início</a>
+      <a href="/politica-de-privacidade.html">Política de Privacidade</a>
+      <a href="/termos-de-uso.html">Termos de Uso</a>
+    </div>
+  </footer>
+
+</body>
+</html>
