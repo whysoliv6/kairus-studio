@@ -2038,6 +2038,205 @@
     @media (max-width: 1099px) {
       .target-cursor-wrapper { display: none; }
     }
+
+    /* ===== CTA + FAQ SECTION ===== */
+    @property --c5-x1 { syntax: '<percentage>'; inherits: false; initial-value: 10%; }
+    @property --c5-y1 { syntax: '<percentage>'; inherits: false; initial-value: 10%; }
+    @property --c5-x2 { syntax: '<percentage>'; inherits: false; initial-value: 90%; }
+    @property --c5-y2 { syntax: '<percentage>'; inherits: false; initial-value: 10%; }
+    @property --c5-x3 { syntax: '<percentage>'; inherits: false; initial-value: 10%; }
+    @property --c5-y3 { syntax: '<percentage>'; inherits: false; initial-value: 90%; }
+    @property --c5-x4 { syntax: '<percentage>'; inherits: false; initial-value: 90%; }
+    @property --c5-y4 { syntax: '<percentage>'; inherits: false; initial-value: 90%; }
+    @property --c5-x5 { syntax: '<percentage>'; inherits: false; initial-value: 50%; }
+    @property --c5-y5 { syntax: '<percentage>'; inherits: false; initial-value: 50%; }
+    @property --c5-s1 { syntax: '<percentage>'; inherits: false; initial-value: 55%; }
+    @property --c5-s2 { syntax: '<percentage>'; inherits: false; initial-value: 55%; }
+    @property --c5-s3 { syntax: '<percentage>'; inherits: false; initial-value: 55%; }
+    @property --c5-s4 { syntax: '<percentage>'; inherits: false; initial-value: 55%; }
+    @property --c5-s5 { syntax: '<percentage>'; inherits: false; initial-value: 65%; }
+
+    .c5-animated-gradient {
+      background-color: #ff8e53;
+      background-image:
+        radial-gradient(circle at var(--c5-x1) var(--c5-y1), #fff1aa 0px, transparent var(--c5-s1)),
+        radial-gradient(circle at var(--c5-x2) var(--c5-y2), #ff4b2b 0px, transparent var(--c5-s2)),
+        radial-gradient(circle at var(--c5-x3) var(--c5-y3), #8aff8a 0px, transparent var(--c5-s3)),
+        radial-gradient(circle at var(--c5-x4) var(--c5-y4), #ffd000 0px, transparent var(--c5-s4)),
+        radial-gradient(circle at var(--c5-x5) var(--c5-y5), #ff1493 0px, transparent var(--c5-s5));
+      animation:
+        c5-blob1 5s ease-in-out infinite,
+        c5-blob2 6s ease-in-out infinite,
+        c5-blob3 5.5s ease-in-out infinite,
+        c5-blob4 6.5s ease-in-out infinite,
+        c5-blob5 4s ease-in-out infinite,
+        c5-size1 3.5s ease-in-out infinite,
+        c5-size2 4.2s ease-in-out infinite,
+        c5-size3 3.8s ease-in-out infinite,
+        c5-size4 4.6s ease-in-out infinite,
+        c5-size5 3s ease-in-out infinite;
+    }
+
+    @keyframes c5-blob1 {
+      0%,100% { --c5-x1: 5%;  --c5-y1: 5%;  }
+      25%     { --c5-x1: 45%; --c5-y1: 20%; }
+      50%     { --c5-x1: 30%; --c5-y1: 55%; }
+      75%     { --c5-x1: 0%;  --c5-y1: 30%; }
+    }
+    @keyframes c5-blob2 {
+      0%,100% { --c5-x2: 95%; --c5-y2: 5%;  }
+      33%     { --c5-x2: 55%; --c5-y2: 35%; }
+      66%     { --c5-x2: 80%; --c5-y2: 65%; }
+    }
+    @keyframes c5-blob3 {
+      0%,100% { --c5-x3: 5%;  --c5-y3: 95%; }
+      40%     { --c5-x3: 45%; --c5-y3: 65%; }
+      70%     { --c5-x3: 25%; --c5-y3: 100%; }
+    }
+    @keyframes c5-blob4 {
+      0%,100% { --c5-x4: 95%; --c5-y4: 95%; }
+      30%     { --c5-x4: 60%; --c5-y4: 70%; }
+      60%     { --c5-x4: 100%; --c5-y4: 50%; }
+    }
+    @keyframes c5-blob5 {
+      0%,100% { --c5-x5: 50%; --c5-y5: 50%; }
+      25%     { --c5-x5: 70%; --c5-y5: 30%; }
+      50%     { --c5-x5: 40%; --c5-y5: 70%; }
+      75%     { --c5-x5: 30%; --c5-y5: 40%; }
+    }
+    @keyframes c5-size1 { 0%,100% { --c5-s1: 45%; } 50% { --c5-s1: 80%; } }
+    @keyframes c5-size2 { 0%,100% { --c5-s2: 45%; } 50% { --c5-s2: 85%; } }
+    @keyframes c5-size3 { 0%,100% { --c5-s3: 45%; } 50% { --c5-s3: 78%; } }
+    @keyframes c5-size4 { 0%,100% { --c5-s4: 45%; } 50% { --c5-s4: 82%; } }
+    @keyframes c5-size5 { 0%,100% { --c5-s5: 50%; } 50% { --c5-s5: 85%; } }
+    @media (prefers-reduced-motion: reduce) { .c5-animated-gradient { animation: none; } }
+
+    .cta-faq {
+      background: #ffffff;
+      padding: 80px 0;
+      font-family: 'Inter', sans-serif;
+    }
+    .cta-faq__inner {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .cta-faq__grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+    .cta-faq__cta {
+      border-radius: 24px;
+      padding: 80px 40px;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    .cta-faq__cta-title {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin: 0 0 15px 0;
+    }
+    .cta-faq__cta-sub {
+      font-size: 0.9rem;
+      font-weight: 400;
+      opacity: 0.85;
+      margin: 0 0 30px 0;
+      color: #ffffff;
+    }
+    .cta-faq__cta-btn {
+      display: inline-block;
+      background: #090504;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .cta-faq__cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.4);
+    }
+    .cta-faq__faq {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid #f0f0f0;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .faq-item.is-open {
+      border-color: #eaeaea;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .faq-item__trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      gap: 16px;
+      text-align: left;
+    }
+    .faq-item__trigger-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #171717;
+      line-height: 1.4;
+    }
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .faq-chevron svg { transition: transform 0.25s ease; }
+    .faq-item.is-open .faq-chevron svg { transform: rotate(180deg); }
+    .faq-item__body {
+      display: none;
+      padding: 0 20px 16px 20px;
+    }
+    .faq-item.is-open .faq-item__body { display: block; }
+    .faq-item__body p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #666666;
+      margin: 0;
+    }
+    @media (max-width: 900px) {
+      .cta-faq { padding: 60px 0; }
+      .cta-faq__grid { grid-template-columns: 1fr; gap: 60px; }
+      .cta-faq__cta-title { font-size: 2.5rem; }
+      .cta-faq__cta { padding: 60px 32px; }
+    }
   </style>
 </head>
 <body>
@@ -2749,6 +2948,66 @@
 
   </main>
 
+  <!-- CTA + FAQ Section -->
+  <section class="cta-faq" id="faq">
+    <div class="cta-faq__inner">
+      <div class="cta-faq__grid">
+
+        <!-- Left: Animated gradient CTA card -->
+        <div class="cta-faq__cta c5-animated-gradient">
+          <h2 class="cta-faq__cta-title">Preparado para<br>transformar o UX do seu negócio?</h2>
+          <p class="cta-faq__cta-sub">Comece mais perto do resultado</p>
+          <a href="https://wa.me/5585998333612" class="cta-faq__cta-btn" target="_blank" rel="noreferrer">com quem já fez o caminho antes.</a>
+        </div>
+
+        <!-- Right: FAQ accordion -->
+        <div class="cta-faq__faq">
+
+          <div class="faq-item is-open">
+            <button class="faq-item__trigger" aria-expanded="true">
+              <span class="faq-item__trigger-text">Quanto custa contratar para um projeto de design de UI / UX?</span>
+              <span class="faq-chevron"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="#171717" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </button>
+            <div class="faq-item__body">
+              <p>Nossos preços estão diretamente relacionados ao escopo do projeto, cronograma, resultados e composição da equipe. Quando o escopo não está definido ou o projeto é muito dinâmico, preferimos nos envolver com base no tempo e esforço. Para ter um orçamento mais realista, seria importante agendarmos um bate-papo. Na sequência, daremos uma proposta detalhada depois de aprender o máximo possível sobre o seu projeto.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span class="faq-item__trigger-text">Qual processo devo esperar de seu estúdio de experiência do usuário?</span>
+              <span class="faq-chevron"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="#171717" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </button>
+            <div class="faq-item__body">
+              <p>Nosso processo de UI/UX Design é fundamentado na metodologia de Design Thinking, o que nos garante flexibilidade para nos adaptarmos a diversos tipos de projetos e modelos de colaboração. Seguimos sempre três etapas fundamentais: 1) Descoberta e Pesquisa; 2) Estratégia e Conceitos Digitais; 3) Design UI/UX.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span class="faq-item__trigger-text">Vocês podem nos ajudar a redesenhar nosso software empresarial / B2B?</span>
+              <span class="faq-chevron"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="#171717" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </button>
+            <div class="faq-item__body">
+              <p>Com certeza! Estamos prontos para o desafio. Temos vasta experiência no atendimento a empresas de diversos setores, focando na transformação digital de softwares de negócios.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span class="faq-item__trigger-text">Vocês trabalham com startups? Como minha empresa em estágio inicial pode pagar por isso?</span>
+              <span class="faq-chevron"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="#171717" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </button>
+            <div class="faq-item__body">
+              <p>Sim, trabalhamos! Como um estúdio de design UX, fazemos parceria com pequenas e grandes startups. Gostamos de projetos que desafiam nossas habilidades e processos. A maior conquista para nós é ver nossos clientes de startups crescerem de forma exponencial. Temos propostas especiais para startups.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="site-footer" role="contentinfo" id="contato">
 
@@ -3260,6 +3519,27 @@
 
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+      });
+    })();
+
+    // FAQ Accordion
+    (function() {
+      var faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(function(item) {
+        var trigger = item.querySelector('.faq-item__trigger');
+        if (!trigger) return;
+        trigger.addEventListener('click', function() {
+          var isOpen = item.classList.contains('is-open');
+          faqItems.forEach(function(it) {
+            it.classList.remove('is-open');
+            var t = it.querySelector('.faq-item__trigger');
+            if (t) t.setAttribute('aria-expanded', 'false');
+          });
+          if (!isOpen) {
+            item.classList.add('is-open');
+            trigger.setAttribute('aria-expanded', 'true');
+          }
+        });
       });
     })();
   </script>
