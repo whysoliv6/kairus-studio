@@ -2251,6 +2251,8 @@
       height: 100vh;
       overflow: hidden;
       background: #0A0A0A;
+      display: flex;
+      flex-direction: column;
     }
     .value-path__header {
       position: absolute;
@@ -2277,17 +2279,37 @@
       color: #FFFFFF;
       margin: 0;
     }
+    .value-path__content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      padding: 0 48px;
+      flex: 1;
+      align-items: center;
+      align-content: center;
+    }
+    .value-path__text-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+    .value-path__svg-col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
     .value-path__svg-wrap {
-      position: absolute;
-      inset: 0;
       width: 100%;
       height: 100%;
+      max-height: 600px;
     }
     .value-path__track { fill: none; stroke: rgba(240,90,0,0.12); stroke-width: 4; stroke-linecap: round; }
     .value-path__line  { fill: none; stroke: #F05A00; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
     .value-steps-wrap {
-      position: absolute;
-      inset: 0;
+      position: relative;
+      height: 100%;
       pointer-events: none;
     }
     .value-step {
@@ -2295,10 +2317,14 @@
       max-width: 300px;
       pointer-events: auto;
       opacity: 0;
-      transform: translateY(16px);
       transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     }
-    .value-step.is-active { opacity: 1; transform: translateY(0); }
+    #value-step-01 { top: 8%; transform: translateY(16px); }
+    #value-step-01.is-active { transform: translateY(0); }
+    #value-step-02 { top: 50%; transform: translateY(calc(-50% + 16px)); }
+    #value-step-02.is-active { transform: translateY(-50%); }
+    #value-step-03 { top: 92%; transform: translateY(calc(-100% + 16px)); }
+    #value-step-03.is-active { transform: translateY(-100%); }
     .value-step__num {
       font-family: 'Satoshi', sans-serif;
       font-size: 3.5rem;
@@ -2334,13 +2360,11 @@
     }
     .value-step.is-active .value-step__support { opacity: 1; transform: translateY(0); }
     .value-path__cta-wrap {
-      position: absolute;
-      bottom: 8px;
-      left: 0;
-      right: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      padding: 24px 0 16px;
       opacity: 0;
       transition: opacity 0.6s ease-out;
       z-index: 5;
@@ -2372,10 +2396,13 @@
       .value-path { height: auto; padding: 64px 0 56px; }
       .value-path__sticky { position: static; height: auto; overflow: visible; display: flex; flex-direction: column; padding: 0 24px; }
       .value-path__header { position: static; max-width: none; margin-bottom: 40px; }
+      .value-path__content { display: flex; flex-direction: column; padding: 0; gap: 0; height: auto; flex: none; }
+      .value-path__text-col { height: auto; justify-content: flex-start; }
+      .value-path__svg-col { display: none; }
       .value-path__svg-wrap { display: none; }
-      .value-steps-wrap { position: static; border-left: 2px solid rgba(240,90,0,0.2); padding-left: 28px; display: flex; flex-direction: column; }
-      .value-step { position: static !important; top: auto !important; right: auto !important; left: auto !important; max-width: none; padding-bottom: 40px; }
-      .value-path__cta-wrap { position: static; opacity: 1; align-items: flex-start; margin-top: 16px; }
+      .value-steps-wrap { position: static; border-left: 2px solid rgba(240,90,0,0.2); padding-left: 28px; display: flex; flex-direction: column; height: auto; }
+      .value-step { position: static !important; top: auto !important; right: auto !important; left: auto !important; max-width: none; padding-bottom: 40px; transform: none !important; }
+      .value-path__cta-wrap { opacity: 1; align-items: flex-start; padding: 16px 0 0; margin-top: auto; }
     }
   </style>
 </head>
@@ -3046,52 +3073,50 @@
     <section class="value-path" aria-label="Para quem constrói de verdade" id="value-path-section">
       <div class="value-path__sticky">
 
-        <!-- Label + headline fixos no canto superior esquerdo -->
+        <!-- Label + headline no topo -->
         <div class="value-path__header">
           <p class="value-path__label">+ Para quem constrói de verdade</p>
           <h2 class="value-path__headline">Comece mais perto do resultado com quem já fez o caminho antes.</h2>
         </div>
 
-        <!-- SVG path animado (desktop) -->
-        <svg class="value-path__svg-wrap" viewBox="0 0 1200 2000" preserveAspectRatio="none" aria-hidden="true">
-          <!-- Trilha única bem espaçada: 10% → 35% → 65% → 90% -->
-          <path class="value-path__line" id="vp-line" d="M 100 200 C 100 500, 1100 500, 1100 700 C 1100 1100, 100 1100, 100 1300 C 100 1600, 1100 1600, 1100 1800" fill="none" stroke="#F05A00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          <!-- Nós nas inflexões da trilha -->
-          <circle id="vp-node-01" cx="1100" cy="700" r="12" fill="#0A0A0A" stroke="#F05A00" stroke-width="5"/>
-          <circle id="vp-node-02" cx="100"  cy="1300" r="12" fill="#0A0A0A" stroke="#F05A00" stroke-width="5"/>
-          <circle id="vp-node-03" cx="1100" cy="1800" r="12" fill="#0A0A0A" stroke="#F05A00" stroke-width="5"/>
-        </svg>
+        <!-- Conteúdo principal: duas colunas (texto esq + SVG dir) -->
+        <div class="value-path__content">
+          <div class="value-path__text-col">
+            <div class="value-steps-wrap">
+              <div class="value-step" id="value-step-01">
+                <div class="value-step__num">01</div>
+                <div class="value-step__title">Método validado</div>
+                <p class="value-step__copy">Cada fase do Método Kairus existe porque um produto real precisou dela.</p>
+                <p class="value-step__support">Não chegamos com framework pronto. Chegamos com o que funcionou.</p>
+              </div>
 
-        <!-- Steps (desktop: posicionados absolutamente; mobile: empilhados) -->
-        <div class="value-steps-wrap">
+              <div class="value-step" id="value-step-02">
+                <div class="value-step__num">02</div>
+                <div class="value-step__title">Processo transparente</div>
+                <p class="value-step__copy">Nada acontece sem você saber. Cada etapa registrada e acompanhada em tempo real.</p>
+                <p class="value-step__support">Você não aprova o resultado no final. Você acompanha cada decisão ser tomada.</p>
+              </div>
 
-          <!-- Step 01 — direita, nó em 74% da vh -->
-          <div class="value-step" id="value-step-01" style="top: 68%; right: 8%;">
-            <div class="value-step__num">01</div>
-            <div class="value-step__title">Método validado</div>
-            <p class="value-step__copy">Cada fase do Método Kairus existe porque um produto real precisou dela.</p>
-            <p class="value-step__support">Não chegamos com framework pronto. Chegamos com o que funcionou.</p>
+              <div class="value-step" id="value-step-03">
+                <div class="value-step__num">03</div>
+                <div class="value-step__title">Entrega com evidência</div>
+                <p class="value-step__copy">Nenhuma decisão de design sem dado, teste ou razão estratégica. Tudo rastreável.</p>
+                <p class="value-step__support">Entregamos o produto e a lógica que o construiu. Você sai sabendo o porquê de cada escolha.</p>
+              </div>
+            </div>
           </div>
 
-          <!-- Step 02 — esquerda, nó em 83% da vh -->
-          <div class="value-step" id="value-step-02" style="top: 68%; left: 8%;">
-            <div class="value-step__num">02</div>
-            <div class="value-step__title">Processo transparente</div>
-            <p class="value-step__copy">Nada acontece sem você saber. Cada etapa registrada e acompanhada em tempo real.</p>
-            <p class="value-step__support">Você não aprova o resultado no final. Você acompanha cada decisão ser tomada.</p>
+          <div class="value-path__svg-col">
+            <svg class="value-path__svg-wrap" viewBox="0 0 1200 2000" preserveAspectRatio="none" aria-hidden="true">
+              <path class="value-path__line" id="vp-line" d="M 100 200 C 100 500, 1100 500, 1100 700 C 1100 1100, 100 1100, 100 1300 C 100 1600, 1100 1600, 1100 1800"/>
+              <circle id="vp-node-01" cx="1100" cy="700" r="12" fill="#0A0A0A" stroke="#F05A00" stroke-width="5"/>
+              <circle id="vp-node-02" cx="100"  cy="1300" r="12" fill="#0A0A0A" stroke="#F05A00" stroke-width="5"/>
+              <circle id="vp-node-03" cx="1100" cy="1800" r="12" fill="#0A0A0A" stroke="#F05A00" stroke-width="5"/>
+            </svg>
           </div>
-
-          <!-- Step 03 — direita, nó em 93% da vh -->
-          <div class="value-step" id="value-step-03" style="top: 68%; right: 8%;">
-            <div class="value-step__num">03</div>
-            <div class="value-step__title">Entrega com evidência</div>
-            <p class="value-step__copy">Nenhuma decisão de design sem dado, teste ou razão estratégica. Tudo rastreável.</p>
-            <p class="value-step__support">Entregamos o produto e a lógica que o construiu. Você sai sabendo o porquê de cada escolha.</p>
-          </div>
-
         </div>
 
-        <!-- CTA: aparece após o step 03 -->
+        <!-- CTA footer -->
         <div class="value-path__cta-wrap" id="value-cta">
           <a href="https://wa.me/5585998333612" class="value-path__cta-btn" target="_blank" rel="noreferrer">Falar com a Kairus →</a>
           <span class="value-path__cta-sub">Sem compromisso. Só uma conversa sobre o seu produto.</span>

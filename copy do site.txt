@@ -1,0 +1,233 @@
+SEÇÃO 01 — HERO
+(Imagem 1: headline central, fundo escuro, CTA único)
+Nav:
+
+Kairus Studio · Método · Projetos · Sobre · Contato → Falar com a gente
+Headline:
+
+Comece mais perto do resultado.
+Subheadline:
+
+Design estratégico para SaaS que precisam crescer com intenção — não com achismo.
+CTA: Conhecer o Método →
+
+SEÇÃO 02 — CLIENTES
+(Imagem 2: "Featured and seen in" com logos em linha)
+Label:
+
+Projetos entregues com
+Logos/nomes em linha:
+
+Zello Auto · LTQ Educação · Azo · Rotto · Quattrus
+
+SEÇÃO 03 — FALANDO SOBRE A KAIRUS
+(Imagem 3: label pequena + headline grande à esquerda + produto/UI à direita)
+
+(Imagem 4: parágrafo com fade — parte em branco, parte em cinza — storytelling do método)
+Label: ✦ O Método Kairus
+Headline grande:
+
+Uma forma nova de fazer design estratégico.
+
+[Bloco de texto com fade — Imagem 4]
+Parte em branco — lida primeiro:
+
+Na Kairus tudo começa pelo problema real — não pelo layout.
+Parte em cinza — revela ao rolar:
+
+Em vez de partir do zero toda vez, aplicamos o Método Kairus: seis fases que vão do diagnóstico até o pós-lançamento. Você não precisa adivinhar o que vai funcionar. A gente descobre junto — e entrega com evidência.
+
+SEÇÃO 04 — VITÓRIA E ANDERSON
+(Imagem 5: fotos em preto e branco com nome, cargo e LinkedIn)
+[Card — Vitória]
+
+VITÓRIA LIMA
+
+FUNDADORA & ESTRATEGISTA DE UX
+
+Designer e futura jurista. Acredita que design bom é quase uma ciência — focada em resolver problemas reais, não em fazer portfólio bonito.
+
+→ LinkedIn
+[Card — Anderson]
+
+ANDERSON [SOBRENOME]
+
+COLABORADOR & DESIGN ESTRATÉGICO
+
+Traz rigor de processo e visão de produto para cada sprint. O tipo de parceiro que faz as perguntas certas antes de abrir o Figma.
+
+→ LinkedIn
+
+SEÇÃO 05 — PROJETOS
+(Imagem 6: grid 2x2 com cards de projeto, tag de categoria e seta de acesso)
+Label: ✦ Projetos
+Headline: Trabalhos que saem do Figma e funcionam no mundo real.
+
+[Card 01]
+
+Azo
+
+Landing page · Estratégia
+
+Landing page com foco em conversão para plataforma B2B.
+
+↗
+[Card 02]
+
+Quattrus
+
+UX Research · UI Design
+
+Produto SaaS construído do zero — da pesquisa ao lançamento.
+
+↗
+[Card 03]
+
+LTQ Educação
+
+Redesign · Design System
+
+Plataforma educacional com nova arquitetura de informação e interface.
+
+↗
+[Card 04]
+
+Zello Auto
+
+Produto · Estratégia
+
+Identidade e produto digital para startup de mobilidade urbana.
+
+↗
+
+SEÇÃO 06 — CARROSSEL VERTICAL COM CARDS (AS 6 FASES)
+(Imagem 7: label + headline de impacto à esquerda + card girando à direita)
+Label: ✦ O Processo
+Headline:
+
+Design na velocidade certa do problema.
+Sub:
+
+Sem ciclos infinitos de revisão. O Método Kairus foi desenhado para entregar clareza em cada fase — e nada além do que precisa ser entregue.
+
+[Cards em carrossel vertical rotativo — direita]
+Card 01 — Raiz
+
+Diagnóstico profundo do produto, do usuário e do mercado. Aqui a gente descobre o que realmente precisa ser resolvido.
+Card 02 — Prova
+
+Validação de hipóteses antes de qualquer pixel. Só avançamos quando há evidência — não quando há achismo.
+Card 03 — Esqueleto
+
+Arquitetura de informação e fluxos que fazem sentido para quem usa. O produto começa a tomar forma com intenção.
+Card 04 — Superfície
+
+Interface visual alinhada à marca e ao comportamento real do usuário. Bonito porque funciona — não o contrário.
+Card 05 — Prova de Fogo
+
+Testes com usuários reais antes do lançamento. O que não funciona, a gente descobre aqui — não depois.
+Card 06 — Pulso
+
+Monitoramento pós-entrega. O design continua sendo acompanhado para garantir que o produto evolui com os usuários.
+
+SEÇÃO 07 — STORYTELLING / MISSÃO
+(Imagem 8: label + headline central + 3 cards horizontais)
+Label: ✦ Por que a Kairus existe
+Headline:
+
+Redescubra o que é construir algo que as pessoas realmente usam.
+[Card 01]
+
+Estratégia e execução juntas.
+
+Você não precisa de uma consultoria pra pensar e uma agência pra fazer. Na Kairus, as duas coisas andam no mesmo processo.
+[Card 02]
+
+Sem perder o fio.
+
+Cada fase é documentada. Cada decisão tem razão. Você sabe exatamente o que foi feito e por quê.
+[Card 03]
+
+Design que se explica sozinho.
+
+Nosso critério de sucesso não é aprovação na apresentação — é seu usuário entender o produto em 3 segundos.
+
+SEÇÃO 08 — PRESENÇA / FLEXIBILIDADE
+(Imagem 9: label + headline grande à esquerda + mockup à direita)
+Label: ✦ Como trabalhamos
+Headline:
+
+Presente em qualquer estágio. A qualquer hora.
+Sub:
+
+Seja você um fundador validando a ideia ou um gestor de produto que precisa escalar uma interface existente — o Método Kairus se adapta ao seu momento.
+Opções visíveis:
+
+→ Projeto completo (6 fases)
+
+→ Diagnóstico e estratégia
+
+→ Sprint de design focado
+
+SEÇÃO 09 — CTA FINAL
+(Imagem 10: label + headline de fechamento + 3 cards com ícone + tags de tipo de projeto)
+Label: ✦ Vamos construir juntos
+Headline:
+
+Comece mais perto do resultado com quem já fez o caminho antes.
+[Card 01]
+
+✦ Método validado
+
+O Método Kairus foi testado em produtos SaaS reais — não em teoria.
+[Card 02]
+
+✦ Processo transparente
+
+Cada fase documentada. Você acompanha tudo em tempo real.
+[Card 03]
+
+✦ Entrega com evidência
+
+Nenhuma decisão de design sem dado, teste ou razão estratégica por trás.
+Tags de projeto:
+
+✦ Landing pages · ✦ Produtos SaaS · ✦ Design Systems · ✦ UX Audit · ✦ Sprints de design · ✦ Redesign
+CTA: Falar com a Kairus →
+
+SEÇÃO 10 — MARQUEE + FOOTER
+(Imagem 11: texto em loop horizontal + footer com colunas)
+Texto em marquee (loop):
+
+Design com intenção · Método Kairus · Estratégia + Execução · Design com intenção · Método Kairus ·
+
+[Footer]
+✦ Kairus Studio
+
+Design estratégico para SaaS que crescem com intenção.
+Sobre
+
+Método
+
+Projetos
+
+Nossa história
+
+Contato
+Estúdio
+
+Instagram
+
+LinkedIn
+
+Blog
+
+Política de privacidade
+[CTA lateral]
+
+→ Siga no Instagram para atualizações
+
+→ Fale com a gente
+
+Estamos aceitando novos projetos para Q3 2025.
+Construído remotamente a partir do Ceará, Brasil.

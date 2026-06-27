@@ -1,0 +1,132 @@
+01 — CORES
+Paleta Principal
+NomeHexUsoOrangish Red#F3390ACTA primário, destaques, hoverPortland Orange#FF5C33Gradientes, elementos secundáriosLiquorice#090504Fundo principal, backgrounds escuros
+Paleta Secundária
+NomeHexUsoPlaster#EAEAEATexto em fundo escuro, backgrounds clarosBlue Fog#9DABBCTexto de suporte, labels, metadados
+Gradientes
+NomeDefinição CSSUsoGradiente 01linear-gradient(135deg, #EAEAEA 0%, #FF5C33 50%, #F3390A 100%)Hero, seções de destaqueGradiente 02linear-gradient(135deg, #FF5C33 0%, #F3390A 40%, #090504 100%)Cards, backgrounds de seção, marquee
+Cores de Suporte (UI)
+UsoHexSucesso / Check#22C55EBorda sutil em fundo escurorgba(255,255,255,0.08)Overlay escurorgba(9,5,4,0.72)
+
+02 — TIPOGRAFIA
+A identidade usa uma sans-serif geométrica condensada e de alto impacto. A fonte mais próxima disponível no Google Fonts:
+Fontes Recomendadas
+Display / Headlines → Barlow Condensed
+
+Weight: 700 (Bold) e 800 (ExtraBold)
+Uso: H1, H2, marquee, seções de impacto
+Alternativa: Bebas Neue para títulos muito grandes
+
+Body / UI → Inter
+
+Weight: 400 (Regular), 500 (Medium), 600 (SemiBold)
+Uso: parágrafos, labels, botões, cards, nav
+
+
+Hierarquia Tipográfica
+TokenFonteSizeWeightLine HeightUso--text-displayBarlow Condensed80–96px8000.95Headline hero, marquee--text-h1Barlow Condensed56–64px7001.05Headline de seção--text-h2Barlow Condensed40–48px7001.1Sub-headlines--text-h3Inter24–28px6001.2Títulos de card--text-labelInter11–12px6001.4Labels em uppercase com letter-spacing--text-bodyInter15–16px4001.6Parágrafos, descrições--text-smallInter13px4001.5Metadados, captions, footer--text-ctaInter14–15px6001Botões
+Regra: Labels sempre em UPPERCASE com letter-spacing: 0.08em.
+
+03 — COMPONENTES
+Botões
+Primário (CTA principal — conversão)
+Background: #F3390A
+Cor do texto: #FFFFFF
+Border-radius: 6px
+Padding: 14px 28px
+Font: Inter 600 14px uppercase
+Hover: background #FF5C33 + transform scale(1.02)
+Transition: all 0.2s ease
+Secundário (outline)
+Background: transparent
+Border: 1px solid rgba(255,255,255,0.2)
+Cor do texto: #EAEAEA
+Border-radius: 6px
+Padding: 14px 28px
+Hover: border-color #F3390A + color #F3390A
+Ghost / Link
+Background: transparent
+Cor do texto: #9DABBC
+Sem border
+Hover: color #EAEAEA
+Underline on hover
+
+Formulário / Input (foco em conversão → WhatsApp)
+Background: rgba(255,255,255,0.04)
+Border: 1px solid rgba(255,255,255,0.1)
+Border-radius: 6px
+Padding: 14px 16px
+Font: Inter 400 15px
+Color: #EAEAEA
+Placeholder color: #9DABBC
+
+Focus:
+  border-color: #F3390A
+  box-shadow: 0 0 0 3px rgba(243,57,10,0.15)
+  outline: none
+
+Erro:
+  border-color: #FF4D4F
+  
+Label:
+  Inter 600 11px uppercase
+  letter-spacing: 0.08em
+  color: #9DABBC
+  margin-bottom: 6px
+Botão de submit do formulário:
+Width: 100%
+Background: linear-gradient(90deg, #F3390A, #FF5C33)
+Cor: #FFFFFF
+Border-radius: 6px
+Padding: 16px
+Font: Inter 600 15px uppercase
+Ícone WhatsApp à esquerda
+Hover: opacity 0.9 + scale 1.01
+
+Cards
+Card de projeto (Portfolio)
+Background: rgba(255,255,255,0.03)
+Border: 1px solid rgba(255,255,255,0.07)
+Border-radius: 12px
+Padding: 0 (imagem ocupa topo) + 20px no body
+Overflow: hidden
+Hover: border-color rgba(243,57,10,0.4) + translateY(-4px)
+Transition: all 0.3s ease
+Card de fase do método (carrossel)
+Background: linear-gradient(135deg, rgba(243,57,10,0.08), rgba(9,5,4,0))
+Border: 1px solid rgba(243,57,10,0.2)
+Border-radius: 10px
+Padding: 28px 24px
+Ativo: border-color #F3390A + background rgba(243,57,10,0.12)
+Card de time (Vitória / Anderson)
+Background: #0F0D0C
+Border-radius: 12px
+Overflow: hidden
+Imagem: preto e branco (filter: grayscale(100%))
+Hover na imagem: grayscale(0%) — traz a cor
+
+04 — ESTÉTICA / TOKENS VISUAIS
+Border Radius
+TokenValorUso--radius-sm4pxTags, badges, labels--radius-md6pxBotões, inputs--radius-lg12pxCards, modais--radius-xl20pxSeções com background diferente--radius-full9999pxPill tags, avatares
+
+Sombras
+TokenValorUso--shadow-glow-red0 0 40px rgba(243,57,10,0.25)CTA, botão primary em hover--shadow-card0 4px 24px rgba(0,0,0,0.4)Cards em fundo escuro--shadow-input-focus0 0 0 3px rgba(243,57,10,0.15)Input em foco--shadow-elevated0 20px 60px rgba(0,0,0,0.6)Modais, overlays
+
+Espaçamentos (escala de 4px)
+TokenValorUso--space-14pxGap mínimo--space-28pxGap interno de elementos--space-312pxPadding de tags/labels--space-416pxPadding de inputs--space-624pxPadding de cards--space-832pxGap entre elementos de seção--space-1248pxPadding de seções mobile--space-2080pxPadding de seções desktop--space-32128pxEspaço entre seções grandes
+
+Layout
+Max-width container: 1200px
+Padding lateral: 24px (mobile) / 48px (tablet) / 80px (desktop)
+Grid: 12 colunas
+Gap de grid: 24px
+
+Regras de Estética Geral
+
+Fundo padrão: #090504 (Liquorice) — quase preto com leve toque quente
+Textura: Sem ruído. Identidade limpa com gradientes suaves
+Imagens: Preto e branco por padrão, cor aparece no hover ou em destaque
+Ícones: Linha fina (stroke), estilo minimalista — usar Lucide Icons ou Phosphor Icons
+Separadores de seção: Não usar <hr>. Usar espaço e mudança sutil de fundo
+Gradiente nos textos: Headline hero pode ter background-clip: text com Gradiente 01
+Animações: ease-out, duração máxima 0.3s para micro-interações, 0.6s para entradas de seção
