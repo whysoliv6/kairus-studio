@@ -2241,7 +2241,7 @@
     /* ===== SCROLL-DRIVEN VALUE PATH SECTION ===== */
     .value-path {
       position: relative;
-      height: 500vh;
+      height: 600vh;
       background: #0A0A0A;
     }
     .value-path__sticky {
@@ -3053,37 +3053,37 @@
 
         <!-- SVG path animado (desktop) -->
         <svg class="value-path__svg-wrap" viewBox="0 0 1200 1600" preserveAspectRatio="none" aria-hidden="true">
-          <!-- Track fantasma — node01: 30%, node02: 58%, node03: 84% de vh -->
-          <path class="value-path__track" d="M 100 40 C 100 260, 1100 260, 1100 480 C 1100 800, 100 800, 100 1120 C 100 1230, 1100 1230, 1100 1400"/>
+          <!-- Track começa em 67% da vh (abaixo da headline), nodes em 74%, 83%, 93% -->
+          <path class="value-path__track" d="M 100 1072 C 100 1128, 1100 1128, 1100 1184 C 1100 1256, 100 1256, 100 1328 C 100 1408, 1100 1408, 1100 1488"/>
           <!-- Linha animada via scroll -->
-          <path class="value-path__line" id="vp-line" d="M 100 40 C 100 260, 1100 260, 1100 480 C 1100 800, 100 800, 100 1120 C 100 1230, 1100 1230, 1100 1400"/>
+          <path class="value-path__line" id="vp-line" d="M 100 1072 C 100 1128, 1100 1128, 1100 1184 C 1100 1256, 100 1256, 100 1328 C 100 1408, 1100 1408, 1100 1488"/>
           <!-- Nós: cy/1600 = % da vh -->
-          <circle id="vp-node-01" cx="1100" cy="480"  r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="4"/>
-          <circle id="vp-node-02" cx="100"  cy="1120" r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="4"/>
-          <circle id="vp-node-03" cx="1100" cy="1400" r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="4"/>
+          <circle id="vp-node-01" cx="1100" cy="1184" r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="4"/>
+          <circle id="vp-node-02" cx="100"  cy="1328" r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="4"/>
+          <circle id="vp-node-03" cx="1100" cy="1488" r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="4"/>
         </svg>
 
         <!-- Steps (desktop: posicionados absolutamente; mobile: empilhados) -->
         <div class="value-steps-wrap">
 
-          <!-- Step 01 — direita, nó em 30% da vh -->
-          <div class="value-step" id="value-step-01" style="top: 21%; right: 16%;">
+          <!-- Step 01 — direita, nó em 74% da vh -->
+          <div class="value-step" id="value-step-01" style="top: 68%; right: 8%;">
             <div class="value-step__num">01</div>
             <div class="value-step__title">Método validado</div>
             <p class="value-step__copy">Cada fase do Método Kairus existe porque um produto real precisou dela.</p>
             <p class="value-step__support">Não chegamos com framework pronto. Chegamos com o que funcionou.</p>
           </div>
 
-          <!-- Step 02 — esquerda, nó em 70% da vh -->
-          <div class="value-step" id="value-step-02" style="top: 70%; left: 10%;">
+          <!-- Step 02 — esquerda, nó em 83% da vh -->
+          <div class="value-step" id="value-step-02" style="top: 68%; left: 8%;">
             <div class="value-step__num">02</div>
             <div class="value-step__title">Processo transparente</div>
             <p class="value-step__copy">Nada acontece sem você saber. Cada etapa registrada e acompanhada em tempo real.</p>
             <p class="value-step__support">Você não aprova o resultado no final. Você acompanha cada decisão ser tomada.</p>
           </div>
 
-          <!-- Step 03 — direita, nó em 84% da vh -->
-          <div class="value-step" id="value-step-03" style="top: 70%; right: 14%;">
+          <!-- Step 03 — direita, nó em 93% da vh -->
+          <div class="value-step" id="value-step-03" style="top: 68%; right: 8%;">
             <div class="value-step__num">03</div>
             <div class="value-step__title">Entrega com evidência</div>
             <p class="value-step__copy">Nenhuma decisão de design sem dado, teste ou razão estratégica. Tudo rastreável.</p>
