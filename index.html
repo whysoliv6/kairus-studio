@@ -2335,10 +2335,11 @@
     .value-path__cta-wrap {
       position: absolute;
       bottom: 44px;
-      left: 48px;
+      left: 0;
+      right: 0;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       opacity: 0;
       transition: opacity 0.6s ease-out;
       z-index: 5;
@@ -3053,13 +3054,13 @@
         <!-- SVG path animado (desktop) -->
         <svg class="value-path__svg-wrap" viewBox="0 0 1200 1600" preserveAspectRatio="none" aria-hidden="true">
           <!-- Track fantasma — node01: 30%, node02: 58%, node03: 84% de vh -->
-          <path class="value-path__track" d="M 100 40 C 100 260, 1100 260, 1100 480 C 1100 700, 100 700, 100 900 C 100 1100, 1100 1100, 1100 1340"/>
+          <path class="value-path__track" d="M 100 40 C 100 260, 1100 260, 1100 480 C 1100 800, 100 800, 100 1120 C 100 1230, 1100 1230, 1100 1400"/>
           <!-- Linha animada via scroll -->
-          <path class="value-path__line" id="vp-line" d="M 100 40 C 100 260, 1100 260, 1100 480 C 1100 700, 100 700, 100 900 C 100 1100, 1100 1100, 1100 1340"/>
+          <path class="value-path__line" id="vp-line" d="M 100 40 C 100 260, 1100 260, 1100 480 C 1100 800, 100 800, 100 1120 C 100 1230, 1100 1230, 1100 1400"/>
           <!-- Nós: cy/1600 = % da vh -->
           <circle id="vp-node-01" cx="1100" cy="480"  r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="4"/>
-          <circle id="vp-node-02" cx="100"  cy="900"  r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="4"/>
-          <circle id="vp-node-03" cx="1100" cy="1340" r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="4"/>
+          <circle id="vp-node-02" cx="100"  cy="1120" r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="4"/>
+          <circle id="vp-node-03" cx="1100" cy="1400" r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="4"/>
         </svg>
 
         <!-- Steps (desktop: posicionados absolutamente; mobile: empilhados) -->
@@ -3073,8 +3074,8 @@
             <p class="value-step__support">Não chegamos com framework pronto. Chegamos com o que funcionou.</p>
           </div>
 
-          <!-- Step 02 — esquerda, nó em 56% da vh -->
-          <div class="value-step" id="value-step-02" style="top: 56%; left: 10%;">
+          <!-- Step 02 — esquerda, nó em 70% da vh -->
+          <div class="value-step" id="value-step-02" style="top: 70%; left: 10%;">
             <div class="value-step__num">02</div>
             <div class="value-step__title">Processo transparente</div>
             <p class="value-step__copy">Nada acontece sem você saber. Cada etapa registrada e acompanhada em tempo real.</p>
