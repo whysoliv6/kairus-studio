@@ -2237,6 +2237,143 @@
       .cta-faq__cta-title { font-size: 2.5rem; }
       .cta-faq__cta { padding: 60px 32px; }
     }
+
+    /* ===== SCROLL-DRIVEN VALUE PATH SECTION ===== */
+    .value-path {
+      position: relative;
+      height: 500vh;
+      background: #0A0A0A;
+    }
+    .value-path__sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: #0A0A0A;
+    }
+    .value-path__header {
+      position: absolute;
+      top: 48px;
+      left: 48px;
+      z-index: 10;
+      max-width: 370px;
+    }
+    .value-path__label {
+      font-family: 'Schibsted Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #F05A00;
+      margin: 0 0 14px 0;
+    }
+    .value-path__headline {
+      font-family: 'Satoshi', sans-serif;
+      font-size: clamp(1.1rem, 1.7vw, 1.8rem);
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -0.025em;
+      color: #EAEAEA;
+      margin: 0;
+    }
+    .value-path__svg-wrap {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .value-path__track { fill: none; stroke: rgba(240,90,0,0.10); stroke-width: 2; }
+    .value-path__line  { fill: none; stroke: #F05A00; stroke-width: 2; stroke-linecap: round; }
+    .value-steps-wrap {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .value-step {
+      position: absolute;
+      max-width: 300px;
+      pointer-events: auto;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .value-step.is-active { opacity: 1; transform: translateY(0); }
+    .value-step__num {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+      color: rgba(255,255,255,0.06);
+      margin-bottom: 2px;
+    }
+    .value-step__title {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .value-step__copy {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.85);
+      margin: 0 0 6px 0;
+    }
+    .value-step__support {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.775rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.40);
+      margin: 0;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.45s ease-out 0.15s, transform 0.45s ease-out 0.15s;
+    }
+    .value-step.is-active .value-step__support { opacity: 1; transform: translateY(0); }
+    .value-path__cta-wrap {
+      position: absolute;
+      bottom: 52px;
+      left: 0; right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.6s ease-out;
+    }
+    .value-path__cta-wrap.is-active { opacity: 1; }
+    .value-path__cta-btn {
+      display: inline-block;
+      background: #F05A00;
+      color: #ffffff;
+      font-family: 'Schibsted Grotesk', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 4px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .value-path__cta-btn:hover { background: #C44500; transform: translateY(-1px); }
+    .value-path__cta-sub {
+      display: block;
+      margin-top: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+    }
+    @media (max-width: 767px) {
+      .value-path { height: auto; padding: 64px 0 56px; }
+      .value-path__sticky { position: static; height: auto; overflow: visible; display: flex; flex-direction: column; padding: 0 24px; }
+      .value-path__header { position: static; max-width: none; margin-bottom: 40px; }
+      .value-path__svg-wrap { display: none; }
+      .value-steps-wrap { position: static; border-left: 2px solid rgba(240,90,0,0.2); padding-left: 28px; display: flex; flex-direction: column; }
+      .value-step { position: static !important; top: auto !important; right: auto !important; left: auto !important; max-width: none; padding-bottom: 40px; }
+      .value-path__cta-wrap { position: static; opacity: 1; align-items: flex-start; margin-top: 16px; }
+    }
   </style>
 </head>
 <body>
@@ -2902,47 +3039,63 @@
       </div>
     </section>
 
-    <!-- SEÇÃO 09: CTA FINAL -->
-    <section aria-label="Vamos construir juntos">
-      <div class="container">
-        <p class="text-label">✦ Vamos construir juntos</p>
-        <h2>Comece mais perto do resultado com quem já fez o caminho antes.</h2>
+    <!-- SEÇÃO 09: VALUE PATH SCROLL ANIMATION -->
+    <section class="value-path" aria-label="Para quem constrói de verdade" id="value-path-section">
+      <div class="value-path__sticky">
 
-        <div class="grid-3" style="margin-top: 3rem; margin-bottom: 3rem;">
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">✦ Método validado</div>
-              <p style="color: var(--color-support);">O Método Kairus foi testado em produtos SaaS reais — não em teoria.</p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">✦ Processo transparente</div>
-              <p style="color: var(--color-support);">Cada fase documentada. Você acompanha tudo em tempo real.</p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">✦ Entrega com evidência</div>
-              <p style="color: var(--color-support);">Nenhuma decisão de design sem dado, teste ou razão estratégica por trás.</p>
-            </div>
-          </div>
+        <!-- Label + headline fixos no canto superior esquerdo -->
+        <div class="value-path__header">
+          <p class="value-path__label">+ Para quem constrói de verdade</p>
+          <h2 class="value-path__headline">Comece mais perto do resultado com quem já fez o caminho antes.</h2>
         </div>
 
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem;">
-          <span style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(243,57,10,0.1); border: 1px solid rgba(243,57,10,0.3); border-radius: 9999px; font-size: 12px; font-weight: 600; color: var(--color-primary);">✦ Landing pages</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(243,57,10,0.1); border: 1px solid rgba(243,57,10,0.3); border-radius: 9999px; font-size: 12px; font-weight: 600; color: var(--color-primary);">✦ Produtos SaaS</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(243,57,10,0.1); border: 1px solid rgba(243,57,10,0.3); border-radius: 9999px; font-size: 12px; font-weight: 600; color: var(--color-primary);">✦ Design Systems</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(243,57,10,0.1); border: 1px solid rgba(243,57,10,0.3); border-radius: 9999px; font-size: 12px; font-weight: 600; color: var(--color-primary);">✦ UX Audit</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(243,57,10,0.1); border: 1px solid rgba(243,57,10,0.3); border-radius: 9999px; font-size: 12px; font-weight: 600; color: var(--color-primary);">✦ Sprints de design</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(243,57,10,0.1); border: 1px solid rgba(243,57,10,0.3); border-radius: 9999px; font-size: 12px; font-weight: 600; color: var(--color-primary);">✦ Redesign</span>
+        <!-- SVG path animado (desktop) -->
+        <svg class="value-path__svg-wrap" viewBox="0 0 1200 1000" preserveAspectRatio="none" aria-hidden="true">
+          <!-- Track fantasma -->
+          <path class="value-path__track" d="M 100 80 C 100 280, 1100 280, 1100 450 C 1100 630, 100 630, 100 720 C 100 860, 1100 860, 1100 890"/>
+          <!-- Linha animada via scroll -->
+          <path class="value-path__line" id="vp-line" d="M 100 80 C 100 280, 1100 280, 1100 450 C 1100 630, 100 630, 100 720 C 100 860, 1100 860, 1100 890"/>
+          <!-- Nós nos pontos de inflexão -->
+          <circle id="vp-node-01" cx="1100" cy="450" r="7" fill="#0A0A0A" stroke="#F05A00" stroke-width="2"/>
+          <circle id="vp-node-02" cx="100"  cy="720" r="7" fill="#0A0A0A" stroke="#F05A00" stroke-width="2"/>
+          <circle id="vp-node-03" cx="1100" cy="890" r="7" fill="#0A0A0A" stroke="#F05A00" stroke-width="2"/>
+        </svg>
+
+        <!-- Steps (desktop: posicionados absolutamente; mobile: empilhados) -->
+        <div class="value-steps-wrap">
+
+          <!-- Step 01 — lado direito, ~45% da altura -->
+          <div class="value-step" id="value-step-01" style="top: 29%; right: 20%;">
+            <div class="value-step__num">01</div>
+            <div class="value-step__title">Método validado</div>
+            <p class="value-step__copy">Cada fase do Método Kairus existe porque um produto real precisou dela.</p>
+            <p class="value-step__support">Não chegamos com framework pronto. Chegamos com o que funcionou.</p>
+          </div>
+
+          <!-- Step 02 — lado esquerdo, ~65% da altura -->
+          <div class="value-step" id="value-step-02" style="top: 58%; left: 12%;">
+            <div class="value-step__num">02</div>
+            <div class="value-step__title">Processo transparente</div>
+            <p class="value-step__copy">Nada acontece sem você saber. Cada etapa registrada e acompanhada em tempo real.</p>
+            <p class="value-step__support">Você não aprova o resultado no final. Você acompanha cada decisão ser tomada.</p>
+          </div>
+
+          <!-- Step 03 — lado direito, ~77% da altura -->
+          <div class="value-step" id="value-step-03" style="top: 76%; right: 20%;">
+            <div class="value-step__num">03</div>
+            <div class="value-step__title">Entrega com evidência</div>
+            <p class="value-step__copy">Nenhuma decisão de design sem dado, teste ou razão estratégica. Tudo rastreável.</p>
+            <p class="value-step__support">Entregamos o produto e a lógica que o construiu. Você sai sabendo o porquê de cada escolha.</p>
+          </div>
+
         </div>
 
-        <div style="text-align: center;">
-          <a href="https://wa.me/5585998333612" target="_blank" rel="noreferrer" class="btn btn-primary">Falar com a Kairus →</a>
+        <!-- CTA: aparece após o step 03 -->
+        <div class="value-path__cta-wrap" id="value-cta">
+          <a href="https://wa.me/5585998333612" class="value-path__cta-btn" target="_blank" rel="noreferrer">Falar com a Kairus →</a>
+          <span class="value-path__cta-sub">Sem compromisso. Só uma conversa sobre o seu produto.</span>
         </div>
+
       </div>
     </section>
 
@@ -3541,6 +3694,63 @@
           }
         });
       });
+    })();
+
+    // Value Path Scroll Animation
+    (function() {
+      var section = document.getElementById('value-path-section');
+      if (!section) return;
+
+      var isMobile = window.matchMedia('(max-width: 767px)').matches;
+
+      if (isMobile) {
+        // Mobile: IntersectionObserver fade-in
+        var steps = section.querySelectorAll('.value-step');
+        var cta = document.getElementById('value-cta');
+        var io = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) { e.target.classList.add('is-active'); }
+          });
+        }, { threshold: 0.15 });
+        steps.forEach(function(s) { io.observe(s); });
+        if (cta) io.observe(cta);
+        return;
+      }
+
+      // Desktop: stroke-dashoffset scroll animation
+      var line = document.getElementById('vp-line');
+      if (!line) return;
+
+      var pathLength = line.getTotalLength();
+      line.style.strokeDasharray = pathLength;
+      line.style.strokeDashoffset = pathLength;
+
+      var nodes = [
+        { dot: document.getElementById('vp-node-01'), step: document.getElementById('value-step-01'), threshold: 0.28 },
+        { dot: document.getElementById('vp-node-02'), step: document.getElementById('value-step-02'), threshold: 0.56 },
+        { dot: document.getElementById('vp-node-03'), step: document.getElementById('value-step-03'), threshold: 0.83 }
+      ];
+      var cta = document.getElementById('value-cta');
+
+      function update() {
+        var rect = section.getBoundingClientRect();
+        var totalScroll = section.offsetHeight - window.innerHeight;
+        var scrolled = -rect.top;
+        var progress = Math.max(0, Math.min(1, scrolled / totalScroll));
+
+        line.style.strokeDashoffset = pathLength * (1 - progress);
+
+        nodes.forEach(function(n) {
+          var active = progress >= n.threshold;
+          if (n.step) n.step.classList.toggle('is-active', active);
+          if (n.dot) n.dot.setAttribute('fill', active ? '#F05A00' : '#0A0A0A');
+        });
+
+        if (cta) cta.classList.toggle('is-active', progress >= 0.93);
+      }
+
+      window.addEventListener('scroll', update, { passive: true });
+      update();
     })();
   </script>
 
