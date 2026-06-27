@@ -2282,8 +2282,8 @@
       width: 100%;
       height: 100%;
     }
-    .value-path__track { fill: none; stroke: rgba(240,90,0,0.12); stroke-width: 3; stroke-linecap: round; }
-    .value-path__line  { fill: none; stroke: #F05A00; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .value-path__track { fill: none; stroke: rgba(240,90,0,0.12); stroke-width: 4; stroke-linecap: round; }
+    .value-path__line  { fill: none; stroke: #F05A00; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
     .value-steps-wrap {
       position: absolute;
       inset: 0;
@@ -2335,10 +2335,10 @@
     .value-path__cta-wrap {
       position: absolute;
       bottom: 44px;
-      left: 0; right: 0;
+      left: 48px;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       opacity: 0;
       transition: opacity 0.6s ease-out;
       z-index: 5;
@@ -3053,13 +3053,13 @@
         <!-- SVG path animado (desktop) -->
         <svg class="value-path__svg-wrap" viewBox="0 0 1200 1600" preserveAspectRatio="none" aria-hidden="true">
           <!-- Track fantasma — node01: 30%, node02: 58%, node03: 84% de vh -->
-          <path class="value-path__track" d="M 100 40 C 100 260, 1100 260, 1100 480 C 1100 700, 100 700, 100 928 C 100 1120, 1100 1120, 1100 1344"/>
+          <path class="value-path__track" d="M 100 40 C 100 260, 1100 260, 1100 480 C 1100 700, 100 700, 100 900 C 100 1100, 1100 1100, 1100 1340"/>
           <!-- Linha animada via scroll -->
-          <path class="value-path__line" id="vp-line" d="M 100 40 C 100 260, 1100 260, 1100 480 C 1100 700, 100 700, 100 928 C 100 1120, 1100 1120, 1100 1344"/>
+          <path class="value-path__line" id="vp-line" d="M 100 40 C 100 260, 1100 260, 1100 480 C 1100 700, 100 700, 100 900 C 100 1100, 1100 1100, 1100 1340"/>
           <!-- Nós: cy/1600 = % da vh -->
-          <circle id="vp-node-01" cx="1100" cy="480"  r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="3"/>
-          <circle id="vp-node-02" cx="100"  cy="928"  r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="3"/>
-          <circle id="vp-node-03" cx="1100" cy="1344" r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="3"/>
+          <circle id="vp-node-01" cx="1100" cy="480"  r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="4"/>
+          <circle id="vp-node-02" cx="100"  cy="900"  r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="4"/>
+          <circle id="vp-node-03" cx="1100" cy="1340" r="9" fill="#0A0A0A" stroke="#F05A00" stroke-width="4"/>
         </svg>
 
         <!-- Steps (desktop: posicionados absolutamente; mobile: empilhados) -->
@@ -3073,8 +3073,8 @@
             <p class="value-step__support">Não chegamos com framework pronto. Chegamos com o que funcionou.</p>
           </div>
 
-          <!-- Step 02 — esquerda, nó em 58% da vh -->
-          <div class="value-step" id="value-step-02" style="top: 48%; left: 10%;">
+          <!-- Step 02 — esquerda, nó em 56% da vh -->
+          <div class="value-step" id="value-step-02" style="top: 56%; left: 10%;">
             <div class="value-step__num">02</div>
             <div class="value-step__title">Processo transparente</div>
             <p class="value-step__copy">Nada acontece sem você saber. Cada etapa registrada e acompanhada em tempo real.</p>
@@ -3082,7 +3082,7 @@
           </div>
 
           <!-- Step 03 — direita, nó em 84% da vh -->
-          <div class="value-step" id="value-step-03" style="top: 68%; right: 16%;">
+          <div class="value-step" id="value-step-03" style="top: 70%; right: 14%;">
             <div class="value-step__num">03</div>
             <div class="value-step__title">Entrega com evidência</div>
             <p class="value-step__copy">Nenhuma decisão de design sem dado, teste ou razão estratégica. Tudo rastreável.</p>
@@ -3741,13 +3741,15 @@
 
         line.style.strokeDashoffset = pathLength * (1 - progress);
 
-        nodes.forEach(function(n) {
-          var active = progress >= n.threshold;
-          if (n.step) n.step.classList.toggle('is-active', active);
-          if (n.dot) n.dot.setAttribute('fill', active ? '#F05A00' : '#0A0A0A');
+        nodes.forEach(function(n, idx) {
+          var reached = progress >= n.threshold;
+          var exitAt = idx < nodes.length - 1 ? nodes[idx + 1].threshold + 0.03 : 1;
+          var visible = reached && (idx === nodes.length - 1 || progress < exitAt);
+          if (n.step) n.step.classList.toggle('is-active', visible);
+          if (n.dot) n.dot.setAttribute('fill', reached ? '#F05A00' : '#0A0A0A');
         });
 
-        if (cta) cta.classList.toggle('is-active', progress >= 0.93);
+        if (cta) cta.classList.toggle('is-active', progress >= 0.92);
       }
 
       window.addEventListener('scroll', update, { passive: true });
