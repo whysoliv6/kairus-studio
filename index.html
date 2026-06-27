@@ -2279,86 +2279,79 @@
       color: #FFFFFF;
       margin: 0;
     }
-    .value-path__content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      padding: 0 48px;
-      flex: 1;
-      align-items: center;
-      align-content: center;
-    }
-    .value-path__text-col {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100%;
-    }
-    .value-path__svg-col {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
+    .value-path__track-container {
+      position: relative;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
     .value-path__svg-wrap {
-      width: 100%;
-      height: 100%;
-      max-height: 600px;
-    }
-    .value-path__track { fill: none; stroke: rgba(240,90,0,0.12); stroke-width: 4; stroke-linecap: round; }
-    .value-path__line  { fill: none; stroke: #F05A00; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
-    .value-steps-wrap {
-      position: relative;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 160px;
       height: 100%;
       pointer-events: none;
+      overflow: visible;
+      z-index: 1;
+    }
+    .value-path__track { fill: none; stroke: rgba(240,90,0,0.12); stroke-width: 2.5; stroke-linecap: round; }
+    .value-path__line  { fill: none; stroke: #F05A00; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .value-steps-wrap {
+      position: relative;
+      z-index: 2;
     }
     .value-step {
-      position: absolute;
-      max-width: 300px;
-      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      min-height: 280px;
       opacity: 0;
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      transform: translateY(24px);
+      transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1);
     }
-    #value-step-01 { top: 2%; transform: translateY(16px); }
-    #value-step-01.is-active { opacity: 1; transform: translateY(0); }
-    #value-step-02 { top: 50%; transform: translateY(calc(-50% + 16px)); }
-    #value-step-02.is-active { opacity: 1; transform: translateY(-50%); }
-    #value-step-03 { top: 98%; transform: translateY(calc(-100% + 16px)); }
-    #value-step-03.is-active { opacity: 1; transform: translateY(-100%); }
+    .value-step.is-active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #value-step-01 { padding-top: 200px; }
+    #value-step-02 { min-height: 260px; }
+    #value-step-03 { min-height: 260px; }
+    .value-step--left {
+      padding-right: 54%;
+      padding-left: 0;
+    }
+    .value-step--right {
+      padding-left: 54%;
+      padding-right: 0;
+    }
+    .value-step__content {
+      width: 100%;
+    }
     .value-step__num {
       font-family: 'Satoshi', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 800;
+      font-size: 36px;
+      font-weight: 700;
       line-height: 1;
-      color: rgba(240,90,0,0.70);
-      margin-bottom: 2px;
+      color: rgba(240,90,0,0.22);
+      display: block;
+      margin-bottom: 6px;
     }
     .value-step__title {
       font-family: 'Satoshi', sans-serif;
-      font-size: 1.5rem;
+      font-size: clamp(20px, 2.2vw, 28px);
       font-weight: 700;
       color: #ffffff;
-      line-height: 1.2;
-      margin-bottom: 8px;
+      line-height: 1.1;
+      margin: 0 0 10px 0;
     }
     .value-step__copy {
       font-family: 'Inter', sans-serif;
-      font-size: 0.875rem;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.85);
-      margin: 0 0 6px 0;
-    }
-    .value-step__support {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.775rem;
-      line-height: 1.6;
-      color: rgba(255,255,255,0.40);
+      font-size: 13px;
+      line-height: 1.7;
+      color: #777777;
       margin: 0;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.45s ease-out 0.15s, transform 0.45s ease-out 0.15s;
     }
-    .value-step.is-active .value-step__support { opacity: 1; transform: translateY(0); }
     .value-path__cta-wrap {
       display: flex;
       flex-direction: column;
@@ -2394,15 +2387,15 @@
     }
     @media (max-width: 767px) {
       .value-path { height: auto; padding: 64px 0 56px; }
-      .value-path__sticky { position: static; height: auto; overflow: visible; display: flex; flex-direction: column; padding: 0 24px; }
+      .value-path__sticky { position: static; height: auto; overflow: visible; padding: 0 24px; }
       .value-path__header { position: static; max-width: none; margin-bottom: 40px; }
-      .value-path__content { display: flex; flex-direction: column; padding: 0; gap: 0; height: auto; flex: none; }
-      .value-path__text-col { height: auto; justify-content: flex-start; }
-      .value-path__svg-col { display: none; }
+      .value-path__track-container { max-width: none; padding: 0; }
       .value-path__svg-wrap { display: none; }
-      .value-steps-wrap { position: static; border-left: 2px solid rgba(240,90,0,0.2); padding-left: 28px; display: flex; flex-direction: column; height: auto; }
-      .value-step { position: static !important; top: auto !important; right: auto !important; left: auto !important; max-width: none; padding-bottom: 40px; transform: none !important; }
-      .value-path__cta-wrap { opacity: 1; align-items: flex-start; padding: 16px 0 0; margin-top: auto; }
+      .value-steps-wrap { border-left: 2px solid rgba(240,90,0,0.2); padding-left: 28px; }
+      .value-step { display: block; min-height: auto; padding: 0 !important; padding-bottom: 40px; }
+      .value-step--left, .value-step--right { padding: 0; }
+      .value-step__content { width: 100%; }
+      .value-path__cta-wrap { opacity: 1; margin-top: 16px; }
     }
   </style>
 </head>
@@ -3079,46 +3072,54 @@
           <h2 class="value-path__headline">Comece mais perto do resultado com quem já fez o caminho antes.</h2>
         </div>
 
-        <!-- Conteúdo principal: duas colunas (texto esq + SVG dir) -->
-        <div class="value-path__content">
-          <div class="value-path__text-col">
-            <div class="value-steps-wrap">
-              <div class="value-step" id="value-step-01">
+        <!-- Trilha + Steps: SVG centralizada, steps com padding alternado -->
+        <div class="value-path__track-container">
+          <!-- SVG: posicionada no centro (left: 50%) -->
+          <svg class="value-path__svg-wrap" viewBox="0 0 100 1000" preserveAspectRatio="xMidYMin meet" aria-hidden="true">
+            <!-- Trilha fantasma (background) -->
+            <path class="value-path__track" d="M 50 0 C 50 80, 72 140, 72 200 C 72 240, 68 260, 68 270 C 68 310, 42 370, 38 430 C 34 490, 32 525, 32 540 C 32 570, 52 630, 62 700 C 68 750, 68 775, 68 790 C 68 850, 50 930, 50 1000"/>
+            <!-- Trilha animada -->
+            <path class="value-path__line" id="vp-line" d="M 50 0 C 50 80, 72 140, 72 200 C 72 240, 68 260, 68 270 C 68 310, 42 370, 38 430 C 34 490, 32 525, 32 540 C 32 570, 52 630, 62 700 C 68 750, 68 775, 68 790 C 68 850, 50 930, 50 1000"/>
+            <!-- Dots nos pontos de inflexão -->
+            <circle id="vp-node-01" cx="68" cy="270" r="5" fill="#0A0A0A" stroke="#F05A00" stroke-width="2"/>
+            <circle id="vp-node-02" cx="32" cy="540" r="5" fill="#0A0A0A" stroke="#F05A00" stroke-width="2"/>
+            <circle id="vp-node-03" cx="68" cy="790" r="5" fill="#0A0A0A" stroke="#F05A00" stroke-width="2"/>
+          </svg>
+
+          <!-- Steps: coluna única com padding alternado -->
+          <div class="value-steps-wrap">
+            <!-- Step 01: LEFT -->
+            <div class="value-step value-step--left" id="value-step-01">
+              <div class="value-step__content">
                 <div class="value-step__num">01</div>
                 <div class="value-step__title">Método validado</div>
-                <p class="value-step__copy">Cada fase do Método Kairus existe porque um produto real precisou dela.</p>
-                <p class="value-step__support">Não chegamos com framework pronto. Chegamos com o que funcionou.</p>
-              </div>
-
-              <div class="value-step" id="value-step-02">
-                <div class="value-step__num">02</div>
-                <div class="value-step__title">Processo transparente</div>
-                <p class="value-step__copy">Nada acontece sem você saber. Cada etapa registrada e acompanhada em tempo real.</p>
-                <p class="value-step__support">Você não aprova o resultado no final. Você acompanha cada decisão ser tomada.</p>
-              </div>
-
-              <div class="value-step" id="value-step-03">
-                <div class="value-step__num">03</div>
-                <div class="value-step__title">Entrega com evidência</div>
-                <p class="value-step__copy">Nenhuma decisão de design sem dado, teste ou razão estratégica. Tudo rastreável.</p>
-                <p class="value-step__support">Entregamos o produto e a lógica que o construiu. Você sai sabendo o porquê de cada escolha.</p>
+                <p class="value-step__copy">Cada fase do Método Kairus existe porque um produto real precisou dela. Não chegamos com framework pronto. Chegamos com o que funcionou.</p>
               </div>
             </div>
-          </div>
 
-          <div class="value-path__svg-col">
-            <svg class="value-path__svg-wrap" viewBox="0 0 1200 2000" preserveAspectRatio="none" aria-hidden="true">
-              <path class="value-path__line" id="vp-line" d="M 100 200 C 100 500, 1100 500, 1100 700 C 1100 1100, 100 1100, 100 1300 C 100 1600, 1100 1600, 1100 1800"/>
-              <circle id="vp-node-01" cx="1100" cy="700" r="12" fill="#0A0A0A" stroke="#F05A00" stroke-width="5"/>
-              <circle id="vp-node-02" cx="100"  cy="1300" r="12" fill="#0A0A0A" stroke="#F05A00" stroke-width="5"/>
-              <circle id="vp-node-03" cx="1100" cy="1800" r="12" fill="#0A0A0A" stroke="#F05A00" stroke-width="5"/>
-            </svg>
+            <!-- Step 02: RIGHT -->
+            <div class="value-step value-step--right" id="value-step-02">
+              <div class="value-step__content">
+                <div class="value-step__num">02</div>
+                <div class="value-step__title">Processo transparente</div>
+                <p class="value-step__copy">Nada acontece sem você saber. Cada etapa registrada e acompanhada em tempo real. Você não aprova o resultado no final. Você acompanha cada decisão ser tomada.</p>
+              </div>
+            </div>
+
+            <!-- Step 03: LEFT -->
+            <div class="value-step value-step--left" id="value-step-03">
+              <div class="value-step__content">
+                <div class="value-step__num">03</div>
+                <div class="value-step__title">Entrega com evidência</div>
+                <p class="value-step__copy">Nenhuma decisão de design sem dado, teste ou razão estratégica. Tudo rastreável. Entregamos o produto e a lógica que o construiu. Você sai sabendo o porquê de cada escolha.</p>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- CTA footer -->
         <div class="value-path__cta-wrap" id="value-cta">
-          <a href="https://wa.me/5585998333612" class="value-path__cta-btn" target="_blank" rel="noreferrer">Falar com a Kairus →</a>
+          <a href="https://wa.me/5585998333612" class="value-path__cta-btn" target="_blank" rel="noreferrer">Quero entrar em contato</a>
           <span class="value-path__cta-sub">Sem compromisso. Só uma conversa sobre o seu produto.</span>
         </div>
 
@@ -3748,13 +3749,14 @@
       if (!line) return;
 
       var pathLength = line.getTotalLength();
-      line.style.strokeDasharray = pathLength;
-      line.style.strokeDashoffset = pathLength;
+      line.style.strokeDasharray = '1';
+      line.style.strokeDashoffset = '1';
 
-      var nodes = [
-        { dot: document.getElementById('vp-node-01'), step: document.getElementById('value-step-01'), threshold: 0.28 },
-        { dot: document.getElementById('vp-node-02'), step: document.getElementById('value-step-02'), threshold: 0.56 },
-        { dot: document.getElementById('vp-node-03'), step: document.getElementById('value-step-03'), threshold: 0.83 }
+      var thresholds = [0.12, 0.37, 0.60];
+      var steps = [
+        { el: document.getElementById('value-step-01'), dot: document.getElementById('vp-node-01') },
+        { el: document.getElementById('value-step-02'), dot: document.getElementById('vp-node-02') },
+        { el: document.getElementById('value-step-03'), dot: document.getElementById('vp-node-03') }
       ];
       var cta = document.getElementById('value-cta');
 
@@ -3764,17 +3766,19 @@
         var scrolled = -rect.top;
         var progress = Math.max(0, Math.min(1, scrolled / totalScroll));
 
-        line.style.strokeDashoffset = pathLength * (1 - progress);
+        var trailProgress = Math.min(1, progress * 1.35);
+        line.style.strokeDashoffset = (1 - trailProgress);
 
-        nodes.forEach(function(n, idx) {
-          var reached = progress >= n.threshold;
-          var exitAt = idx < nodes.length - 1 ? nodes[idx + 1].threshold + 0.03 : 1;
-          var visible = reached && (idx === nodes.length - 1 || progress < exitAt);
-          if (n.step) n.step.classList.toggle('is-active', visible);
-          if (n.dot) n.dot.setAttribute('fill', reached ? '#F05A00' : '#0A0A0A');
+        steps.forEach(function(s, idx) {
+          var isVisible = progress >= thresholds[idx];
+          if (s.el) s.el.classList.toggle('is-active', isVisible);
+          if (s.dot) {
+            var newR = isVisible ? 5 : 0;
+            s.dot.setAttribute('r', newR);
+          }
         });
 
-        if (cta) cta.classList.toggle('is-active', progress >= 0.92);
+        if (cta) cta.classList.toggle('is-active', progress >= 0.85);
       }
 
       window.addEventListener('scroll', update, { passive: true });
