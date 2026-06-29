@@ -920,7 +920,7 @@
     }
 
     @media (min-width: 768px) {
-      .card {
+      #projetos .card {
         height: 70vh;
         display: flex;
         flex-direction: column;
@@ -928,9 +928,15 @@
         position: relative;
       }
 
-      .card:nth-child(1) { z-index: 100; }
-      .card:nth-child(2) { z-index: 99; }
-      .card:nth-child(3) { z-index: 98; }
+      #projetos .card:nth-child(1) { z-index: 100; }
+      #projetos .card:nth-child(2) { z-index: 99; }
+      #projetos .card:nth-child(3) { z-index: 98; }
+    }
+
+    .grid-3 .card {
+      min-height: auto;
+      display: flex;
+      flex-direction: column;
     }
 
     .card-image {
