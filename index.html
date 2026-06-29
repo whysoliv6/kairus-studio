@@ -921,17 +921,16 @@
 
     @media (min-width: 768px) {
       .card {
-        position: sticky;
-        top: calc(var(--nav-height) + var(--card-offset, 0px));
         height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        position: relative;
       }
 
-      .card:nth-child(1) { --card-offset: 0px; z-index: 100; }
-      .card:nth-child(2) { --card-offset: 80px; z-index: 99; }
-      .card:nth-child(3) { --card-offset: 160px; z-index: 98; }
+      .card:nth-child(1) { z-index: 100; }
+      .card:nth-child(2) { z-index: 99; }
+      .card:nth-child(3) { z-index: 98; }
     }
 
     .card-image {
