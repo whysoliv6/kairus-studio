@@ -921,7 +921,7 @@
 
     @media (min-width: 768px) {
       .card {
-        height: 100vh;
+        height: 70vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1443,6 +1443,22 @@
       0%, 100% { transform: translateY(0); }
       40%       { transform: translateY(-9px); }
       70%       { transform: translateY(-4px); }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
     }
 
     .process-progress {
