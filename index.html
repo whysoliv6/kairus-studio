@@ -3605,7 +3605,8 @@
           const endPos = stickyTop;
 
           const range = startPos - endPos;
-          const progress = Math.max(0, Math.min(1, (nextRect.top - endPos) / range));
+          // Progress: 0 quando nextCard está no fundo (vh), 1 quando está no topo (stickyTop)
+          const progress = Math.max(0, Math.min(1, (vh - nextRect.top) / range));
 
           // Scale: começa em 1.0, vai até 0.85 conforme nextCard entra
           const scale = 1 - (progress * 0.15);
