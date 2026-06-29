@@ -1456,9 +1456,24 @@
       }
     }
 
+    @keyframes fadeOutDown {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+    }
+
     section {
       animation: fadeInUp 0.8s ease-out forwards;
       opacity: 0;
+    }
+
+    section.fade-out {
+      animation: fadeOutDown 0.8s ease-in forwards !important;
     }
 
     .process-progress {
@@ -3442,6 +3457,26 @@
         section.style.opacity = '0.95';
         section.style.transform = 'translateY(0)';
         section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      });
+
+      // Exit animation observer
+      const exitObserverOptions = {
+        threshold: 0,
+        rootMargin: '0px 0px 0px 0px'
+      };
+
+      const exitObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+            entry.target.classList.add('fade-out');
+          } else {
+            entry.target.classList.remove('fade-out');
+          }
+        });
+      }, exitObserverOptions);
+
+      document.querySelectorAll('section').forEach(section => {
+        exitObserver.observe(section);
       });
     }
 
