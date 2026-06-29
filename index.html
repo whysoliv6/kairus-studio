@@ -923,6 +923,10 @@
       .card {
         position: sticky;
         top: calc(var(--nav-height) + var(--card-offset, 0px));
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
       .card:nth-child(1) { --card-offset: 0px; z-index: 100; }
