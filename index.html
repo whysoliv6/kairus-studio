@@ -3572,13 +3572,13 @@
       });
     })();
 
-    // ===== PROJETOS SECTION: Stacked Cards Baralho Effect =====
+    // ===== PROJETOS SECTION: Stacked Cards with Scroll-Driven Scale =====
     (function () {
       const cards = Array.from(document.querySelectorAll('#projetos .card'));
       if (!cards.length || window.innerWidth < 768) return;
 
       const vh = window.innerHeight;
-      const gapVh = 25;
+      const navHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 80;
 
       function update() {
         if (window.innerWidth < 768) return;
@@ -3588,41 +3588,28 @@
 
           // Último card nunca recebe animação
           if (isLast) {
-            card.style.opacity = '1';
             card.style.transform = 'scale(1)';
             return;
           }
 
-          // Calcula quando este card deve começar a encolher
-          // = quando o próximo card começa a virar (enter na viewport)
+          // Usa getBoundingClientRect para calcular a posição REAL do próximo card na viewport
           const nextCard = cards[i + 1];
-          const nextCardTop = nextCard.offsetTop;
-          const navHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 80;
-          const stickyTop = navHeight + (i * 1.5 * 16); // Cada card sticky um pouco abaixo do anterior (1.5rem = 24px)
+          const nextRect = nextCard.getBoundingClientRect();
 
-          // Começa quando próximo card está entrando (no final da viewport)
-          const animStartScroll = nextCardTop - vh + stickyTop;
-          // Termina quando próximo card está totalmente na frente (topo da viewport)
-          const animEndScroll = nextCardTop - stickyTop;
+          // Calcula o progresso: 0 quando nextCard está no fundo da viewport, 1 quando está no topo
+          const stickyTop = navHeight + (i * 1.5 * 16);
 
-          const scrollRange = animEndScroll - animStartScroll;
+          // Começa quando próximo card toca o fundo da viewport
+          const startPos = vh;
+          // Termina quando próximo card está no topo (onde vai ficar sticky)
+          const endPos = stickyTop;
 
-          if (window.scrollY < animStartScroll) {
-            // Antes da animação começar: card em escala 1.0
-            card.style.opacity = '1';
-            card.style.transform = 'scale(1)';
-          } else if (window.scrollY >= animEndScroll) {
-            // Depois da animação terminar: card escalonado mas opaco
-            card.style.opacity = '1';
-            card.style.transform = 'scale(0.85)';
-          } else {
-            // Durante a animação: apenas escala (sem opacidade)
-            const progress = (window.scrollY - animStartScroll) / scrollRange;
-            const scale = 1 - (progress * 0.15); // 1.0 → 0.85
+          const range = startPos - endPos;
+          const progress = Math.max(0, Math.min(1, (nextRect.top - endPos) / range));
 
-            card.style.opacity = '1';
-            card.style.transform = 'scale(' + scale + ')';
-          }
+          // Scale: começa em 1.0, vai até 0.85 conforme nextCard entra
+          const scale = 1 - (progress * 0.15);
+          card.style.transform = 'scale(' + scale + ')';
         });
       }
 
