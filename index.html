@@ -746,14 +746,6 @@
       overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.3);
-      z-index: 1;
-    }
-
     .hero-video {
       position: absolute;
       top: 0;
@@ -763,6 +755,15 @@
       z-index: 0;
       object-fit: cover;
       object-position: center;
+      will-change: transform;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11, 12, 12, 0.5) 0%, rgba(11, 12, 12, 0.96) 100%);
+      z-index: 1;
+      will-change: opacity;
     }
 
     .hero-content {
@@ -773,6 +774,7 @@
       align-items: center;
       text-align: center;
       gap: var(--space-6);
+      will-change: transform, opacity;
     }
 
     @media (min-width: 1024px) {
@@ -2594,8 +2596,10 @@
         playsInline
         src="./hero-bg.mp4"
       ></video>
+      <!-- Overlay gradiente para transição suave -->
+      <div class="hero-overlay" id="hero-overlay"></div>
       <div class="container">
-        <div class="hero-content">
+        <div class="hero-content" id="hero-content">
           <h1>Transformamos experiências digitais para Startups e Scale-ups que precisam converter e reter.</h1>
           <p>Design estratégico para SaaS que precisam crescer com intenção — não com achismo.</p>
           <a href="#metodo" class="btn btn-primary">Conhecer o Método →</a>
@@ -3778,6 +3782,53 @@
 
       window.addEventListener('scroll', update, { passive: true });
       update();
+    })();
+
+    // Wibify: Parallax duplo com fade-out na transição Hero → Nossas Soluções
+    (function() {
+      var heroSection = document.getElementById('hero-section');
+      var heroVideo = document.getElementById('hero-video');
+      var heroContent = document.getElementById('hero-content');
+      var heroOverlay = document.getElementById('hero-overlay');
+
+      if (!heroSection || !heroVideo || !heroContent) return;
+
+      function updateParallax() {
+        var rect = heroSection.getBoundingClientRect();
+        var heroHeight = heroSection.offsetHeight;
+
+        // Calcula o progress do scroll (0 a 1)
+        // Baseado em quando a hero sai da viewport
+        var scrolled = -rect.top;
+        var maxScroll = heroHeight - window.innerHeight;
+        var progress = Math.max(0, Math.min(1, scrolled / maxScroll));
+
+        // === VIDEO/FUNDO: Parallax positivo + zoom ===
+        // A cada 100px scrollados: translateY ~3-4% para baixo + ~1.5-2% zoom
+        // Total em ~500px: translateY(~17%) scale(1.09)
+        var videoTranslateY = progress * 17; // 0% a 17%
+        var videoScale = 1 + (progress * 0.09); // 1.0 a 1.09
+
+        heroVideo.style.transform = `translateY(${videoTranslateY}%) scale(${videoScale})`;
+
+        // === CONTEÚDO: Parallax negativo + fade out ===
+        // A cada 100px scrollados: translateY ~1.5-2% para cima + ~15% perda de opacidade
+        // Total em ~400px: translateY(~6%) opacity(~0.35)
+        var contentTranslateY = -progress * 6; // 0% a -6%
+        var contentOpacity = Math.max(0, 1 - (progress * 0.65)); // 1.0 a ~0.35
+
+        heroContent.style.transform = `translateY(${contentTranslateY}%)`;
+        heroContent.style.opacity = contentOpacity;
+
+        // === OVERLAY: Fade in suave (opcional, já tem gradiente estático) ===
+        // Se quiser animar o overlay, descomente:
+        // if (heroOverlay) {
+        //   heroOverlay.style.opacity = Math.min(1, progress * 1.2);
+        // }
+      }
+
+      window.addEventListener('scroll', updateParallax, { passive: true });
+      updateParallax();
     })();
   </script>
 
