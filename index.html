@@ -1010,6 +1010,180 @@
       font-size: 16px;
     }
 
+    /* ============================================================
+       PROCESS SECTION - TRILHA SERPENTINA
+       ============================================================ */
+    .process-section {
+      position: relative;
+      padding: var(--space-20) 0;
+    }
+
+    .process-head {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(16px, 3vh, 32px);
+      max-width: 50%;
+      margin-bottom: clamp(60px, 12vh, 160px);
+    }
+
+    .process-head .text-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-support);
+      font-weight: 600;
+    }
+
+    .process-head h2 {
+      margin: 0;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.1;
+    }
+
+    .process-canvas {
+      width: 100%;
+      position: relative;
+      margin-top: clamp(40px, 8vh, 80px);
+    }
+
+    .process-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      overflow: visible;
+    }
+
+    .process-node {
+      fill: var(--color-dark);
+      stroke: var(--color-primary);
+      stroke-width: 3px;
+    }
+
+    .process-steps {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      position: absolute;
+      inset: 0;
+    }
+
+    .process-step {
+      top: var(--top);
+      position: absolute;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(10px, 1.4vh, 18px);
+      width: clamp(240px, 28%, 360px);
+      will-change: opacity, transform;
+      opacity: 0;
+    }
+
+    .process-step--left {
+      text-align: left;
+      left: 5%;
+    }
+
+    .process-step--right {
+      text-align: right;
+      align-items: flex-end;
+      right: 5%;
+    }
+
+    .process-num {
+      font-family: 'Satoshi', sans-serif;
+      font-size: clamp(32px, 5vw, 48px);
+      letter-spacing: -0.01em;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--color-primary);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .process-title {
+      font-family: 'Satoshi', sans-serif;
+      font-size: clamp(20px, 3vw, 28px);
+      line-height: 1.2;
+      color: var(--color-light);
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .process-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(14px, 1.2vw, 16px);
+      line-height: 1.5;
+      color: var(--color-support);
+      max-width: 32ch;
+      margin: 0;
+    }
+
+    @media (max-width: 767px) {
+      .process-head {
+        max-width: 100%;
+        margin-bottom: clamp(40px, 8vh, 72px);
+      }
+
+      .process-svg {
+        display: none;
+      }
+
+      .process-canvas {
+        padding-left: 28px;
+      }
+
+      .process-canvas::before {
+        content: "";
+        background: var(--color-primary);
+        width: 2px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 4px;
+      }
+
+      .process-steps {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        gap: clamp(40px, 10vh, 80px);
+      }
+
+      .process-step,
+      .process-step--right {
+        text-align: left;
+        align-items: flex-start;
+        width: 100%;
+        padding-left: 8px;
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        transform: none;
+        opacity: 1;
+      }
+
+      .process-step::before {
+        content: "";
+        background: var(--color-dark);
+        border: 2px solid var(--color-primary);
+        border-radius: 50%;
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        top: 8px;
+        left: -28px;
+      }
+
+      .process-num {
+        font-size: clamp(28px, 9vw, 40px);
+      }
+
+      .process-desc {
+        max-width: 100%;
+      }
+    }
+
     /* Team Cards */
     .team-card {
       background: #0F0D0C;
@@ -3124,32 +3298,53 @@
     </section>
 
     <!-- SEÇÃO 09: VALUE PATH SCROLL ANIMATION -->
-    <section aria-label="Vamos construir juntos">
+    <section aria-label="Vamos construir juntos" class="process-section" id="processSection">
       <div class="container">
-        <p class="text-label">✦ Vamos construir juntos</p>
-        <h2>Comece mais perto do resultado com quem já fez o caminho antes.</h2>
+        <div class="process-head">
+          <p class="text-label">✦ Vamos construir juntos</p>
+          <h2>Comece mais perto do resultado com quem já fez o caminho antes.</h2>
+        </div>
 
-        <div class="grid-3" style="margin-top: 3rem; margin-bottom: 3rem;">
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">✦ Método validado</div>
-              <p style="color: var(--color-support);">O Método Kairus foi testado em produtos SaaS reais — não em teoria.</p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">✦ Processo transparente</div>
-              <p style="color: var(--color-support);">Cada fase documentada. Você acompanha tudo em tempo real.</p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">✦ Entrega com evidência</div>
-              <p style="color: var(--color-support);">Nenhuma decisão de design sem dado, teste ou razão estratégica por trás.</p>
-            </div>
-          </div>
+        <div class="process-canvas" id="processCanvas">
+          <!-- SVG da trilha serpentina -->
+          <svg
+            class="process-svg"
+            viewBox="0 0 1000 1600"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!-- Trilha principal -->
+            <path
+              id="processPath"
+              d="M 240 80 L 240 420 C 240 680, 760 680, 760 940 C 760 1200, 240 1200, 240 1520 L 240 1520"
+              stroke="var(--color-primary)"
+              fill="none"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+            <!-- Nodes (paradas) em cada step -->
+            <circle class="process-node" cx="240" cy="420"  r="9" />
+            <circle class="process-node" cx="760" cy="940"  r="9" />
+            <circle class="process-node" cx="240" cy="1520" r="9" />
+          </svg>
+          <!-- Steps (posicionados absolutamente sobre o SVG) -->
+          <ol class="process-steps">
+            <li class="process-step process-step--left" style="--top: 26%">
+              <span class="process-num">01</span>
+              <h3 class="process-title">Método validado</h3>
+              <p class="process-desc">O Método Kairus foi testado em produtos SaaS reais — não em teoria.</p>
+            </li>
+            <li class="process-step process-step--right" style="--top: 58%">
+              <span class="process-num">02</span>
+              <h3 class="process-title">Processo transparente</h3>
+              <p class="process-desc">Cada fase documentada. Você acompanha tudo em tempo real.</p>
+            </li>
+            <li class="process-step process-step--left" style="--top: 90%">
+              <span class="process-num">03</span>
+              <h3 class="process-title">Entrega com evidência</h3>
+              <p class="process-desc">Nenhuma decisão de design sem dado, teste ou razão estratégica por trás.</p>
+            </li>
+          </ol>
         </div>
 
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem;">
@@ -3617,6 +3812,71 @@
       window.addEventListener('mouseup', () => {
         gsap.to(dot,    { scale: 1,   duration: 0.25 });
         gsap.to(cursor, { scale: 1,   duration: 0.2  });
+      });
+    })();
+
+    // ===== PROCESS SECTION: TRILHA SERPENTINA COM SCROLL =====
+    (function () {
+      const section  = document.querySelector('.process-section');
+      const path     = document.getElementById('processPath');
+      const steps    = document.querySelectorAll('.process-step');
+
+      if (!section || !path || !steps.length) return;
+      if (window.innerWidth < 768) return;
+      if (typeof gsap === 'undefined') return;
+
+      // Respeita preferência de movimento reduzido
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      // 1. STROKE DRAW-ON
+      const pathLength = path.getTotalLength();
+      gsap.set(path, {
+        strokeDasharray: pathLength,
+        strokeDashoffset: pathLength,
+      });
+
+      gsap.to(path, {
+        strokeDashoffset: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 80%',
+          end: 'bottom 20%',
+          scrub: 1,
+        },
+      });
+
+      // 2. FADE-IN DOS STEPS
+      const stepProgress = [0.26, 0.58, 0.90];
+      steps.forEach((step, i) => {
+        gsap.fromTo(
+          step,
+          {
+            opacity: 0,
+            y: 32,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: section,
+              start: () => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+                return `${sectionTop + sectionHeight * stepProgress[i]}px top`;
+              },
+              end: () => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+                return `${sectionTop + sectionHeight * (stepProgress[i] + 0.12)}px top`;
+              },
+              scrub: false,
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
       });
     })();
 
