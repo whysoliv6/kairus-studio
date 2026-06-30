@@ -1081,17 +1081,17 @@
 
     .process-step--left {
       text-align: left;
-      right: 100%;
-      left: auto;
-      margin-right: 40px;
+      left: 0;
+      right: auto;
+      transform: translateY(-50%) translateX(-calc(100% + 60px));
     }
 
     .process-step--right {
       text-align: right;
       align-items: flex-end;
-      left: 100%;
-      right: auto;
-      margin-left: 40px;
+      right: 0;
+      left: auto;
+      transform: translateY(-50%) translateX(calc(100% + 60px));
     }
 
     .process-num {
