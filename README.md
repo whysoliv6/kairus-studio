@@ -1,28 +1,37 @@
-# 🎨 Equilibrium + Kairus Template
+# 🎨 Kairus Studio - Portfolio
 
-Um template React + Vite + Tailwind CSS reutilizável que combina o design **liquid glass** do Equilibrium com o conteúdo completo do **site da Kairus Studio**.
+Portfolio oficial da **Kairus Studio** - Design estratégico para SaaS que precisam crescer com intenção.
 
-## 📋 O que está incluído
+## 📱 Status: ATIVO ✅
 
-✅ **Header estilizado** com liquid-glass effect e navegação responsiva  
-✅ **Hero section** com background video looping  
-✅ **Seções do site**: Clientes, Método, Equipe, Projetos, Footer  
-✅ **Componentes reutilizáveis** com Tailwind CSS  
-✅ **Config centralizada** para fácil customização  
-✅ **Mobile-first responsive design**  
+Este é o projeto **ATIVO** da Kairus Studio. Para o projeto anterior (Michael Smith Portfolio), veja o repositório `Site`.
 
-## 🚀 Como usar
+## 🌐 Acesso Online
+
+**Site em produção:** https://whysoliv6.github.io/kairus-studio/
+
+## 🛠️ Tecnologias Utilizadas
+
+- **React 18** + TypeScript
+- **Vite** (build tool rápida)
+- **Tailwind CSS** (estilização utilitária)
+- **Framer Motion** (animações de componentes)
+- **GSAP** (scroll-driven animations e parallax)
+- **HLS.js** (streaming de vídeos)
+- **GitHub Pages** (hosting)
+
+## 🚀 Como Rodar Localmente
 
 ### 1. Instalar dependências
 ```bash
 npm install
 ```
 
-### 2. Iniciar servidor de desenvolvimento
+### 2. Servidor de desenvolvimento
 ```bash
 npm run dev
 ```
-Acessa: `http://localhost:5173`
+Abra em seu navegador: `http://localhost:5173`
 
 ### 3. Build para produção
 ```bash
@@ -30,146 +39,149 @@ npm run build
 npm run preview
 ```
 
-## 🎯 Customizar o template
+## 📋 Estrutura do Site
 
-Abra `src/App.tsx` e edite a seção **`SITE_CONFIG`** no topo:
+- **Loading Screen** - Animação com counter 0→100
+- **Navbar** - Navegação fixa com logo KS
+- **Hero Section** - Vídeo de fundo com copy do Kairus
+- **Seção Projetos** - Portfólio com Azo, Zello Auto, LTQ Educação, Quattrus
+- **Bastidores** - Blog com insights de design
+- **Explorations** - Galeria visual com parallax
+- **Estatísticas** - Números do estúdio
+- **Footer** - CTA e redes sociais
+
+## 📝 Como Editar o Conteúdo
+
+Abra `src/App.tsx` e procure pelas seções:
+
+### Navbar
+- Logo: "KS"
+- Links: Início, Projetos, Método
+- Botão: "Vamos conversar ↗"
+
+### Hero Section
+- Label: "Design estratégico para SaaS"
+- Título: "Kairus Studio"
+- Roles rotativas: Raiz, Prova, Estrutura, Validação
+- Descrição e CTAs
+
+### Projetos
+```typescript
+const projects = [
+  { title: 'Azo', ... },
+  { title: 'Zello Auto', ... },
+  { title: 'LTQ Educação', ... },
+  { title: 'Quattrus', ... },
+]
+```
+
+### Blog (Bastidores)
+```typescript
+const entries = [
+  { title: 'Por que toda marca de SaaS precisa de uma Raiz antes de um logo', ... },
+  // ... mais posts
+]
+```
+
+## 🎨 Cores e Design
+
+Definidas em `tailwind.config.ts`:
 
 ```typescript
-const SITE_CONFIG = {
-  // Logo e branding
-  logo: '✦ Kairus Studio',
-
-  // Navegação
-  navLinks: [
-    { label: 'Método', href: '#metodo' },
-    { label: 'Projetos', href: '#projetos' },
-    // ... adicione mais links
-  ],
-
-  // Hero Section
-  hero: {
-    headline: 'Comece mais perto do resultado.',
-    subheadline: 'Design estratégico para SaaS que precisam crescer com intenção — não com achismo.',
-    primaryCTA: { text: 'Conhecer o Método', href: '#metodo' },
-    secondaryCTA: { text: 'Saber Mais', href: '#sobre' },
-  },
-
-  // Cores (customize aqui)
-  colors: {
-    primary: '#F3390A',      // Cor principal
-    secondary: '#FF5C33',    // Cor secundária
-    dark: '#090504',         // Fundo
-    light: '#EAEAEA',        // Texto claro
-    support: '#9DABBC',      // Texto suporte
-  },
-
-  // Background video (qualquer URL)
-  bgVideo: 'https://...',
+colors: {
+  bg: 'hsl(0 0% 4%)',           // Fundo (#090504)
+  surface: 'hsl(0 0% 8%)',      // Superfície
+  'text-primary': 'hsl(0 0% 96%)', // Texto (#EAEAEA)
+  muted: 'hsl(0 0% 53%)',       // Texto muted
+  stroke: 'hsl(0 0% 12%)',      // Bordas
 }
 ```
 
-## 📝 Estrutura de Seções
-
-### Componentes disponíveis:
-- `ClientsSection` - Lista de clientes
-- `MethodSection` - Descrição do método
-- `TeamSection` - Cards de equipe
-- `ProjectsSection` - Grid de projetos
-- `Footer` - Rodapé
-
-Todos os dados (equipe, projetos, clientes) estão hardcoded nos componentes para facilitar edição.
-
-## 🎨 Customização avançada
-
-### Adicionar nova seção
-```typescript
-function NewSection() {
-  return (
-    <section className="py-12 sm:py-16 lg:py-20">
-      <div className="max-w-6xl mx-auto px-6 sm:px-12 lg:px-20">
-        {/* conteúdo */}
-      </div>
-    </section>
-  )
-}
-
-// No retorno do App:
-export default function App() {
-  return (
-    <div>
-      {/* ... hero ... */}
-      <ClientsSection />
-      <NewSection /> {/* ← adicione aqui */}
-      <Footer />
-    </div>
-  )
-}
+Gradient accent:
+```css
+background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%);
 ```
 
-### Usar liquid-glass em outros elementos
+## 🔧 Customizações Rápidas
+
+### Trocar vídeo de fundo
+Procure em `HeroSection()`:
 ```typescript
-<div className="liquid-glass rounded-lg p-6">
-  Conteúdo com efeito vidro
-</div>
+hls.loadSource('https://seu-video.m3u8')
 ```
 
-## 🔧 Variáveis CSS úteis
+### Atualizar email de contato
+No `ContactSection()`:
+```typescript
+href="mailto:seu-email@gmail.com"
+```
 
-Definidas em `src/index.css`:
-
-- `.liquid-glass` - Efeito vidro com blur e gradiente de borda
-- Classes Tailwind padrão (`text-white`, `bg-opacity-50`, etc)
+### Adicionar/remover projetos
+Na seção `SelectedWorksSection()`:
+```typescript
+const projects = [
+  { title: 'Novo Projeto', image: 'url', span: 'md:col-span-7' },
+]
+```
 
 ## 📱 Responsividade
 
-Breakpoints do Tailwind:
+Breakpoints Tailwind:
 - `sm:` - 640px
-- `md:` - 768px (navbar tablet/desktop)
+- `md:` - 768px
 - `lg:` - 1024px
-
-Exemplo:
-```typescript
-className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
-```
-
-## 🎬 Trocar vídeo de fundo
-
-No `SITE_CONFIG`:
-```typescript
-bgVideo: 'https://seu-video.mp4'
-```
-
-Qualquer URL de vídeo funciona. Certifique-se que:
-- Está em formato MP4 ou WebM
-- Tem autoplay habilitado
-- É responsivo (usa `object-cover`)
-
-## 💡 Dicas
-
-1. **Cores**: Altere todas as cores num único lugar em `SITE_CONFIG.colors`
-2. **Copy**: Todos os textos estão em variáveis/arrays - fácil de trocar
-3. **Componentes**: Cada seção é um componente React independente
-4. **Estilos**: Use classes Tailwind + inline styles com `SITE_CONFIG.colors`
-5. **Deploy**: Build com `npm run build`, output em `/dist`
-
-## 📦 Dependências
-
-- React 18
-- Vite 5
-- Tailwind CSS 3
-- lucide-react (ícones)
-- TypeScript
+- `xl:` - 1280px
 
 ## 🚢 Deploy
 
-```bash
-# Build
-npm run build
+O site é deployado automaticamente via GitHub Actions para GitHub Pages.
 
-# Copiar /dist para seu servidor
-# Ou fazer deploy direto com Vercel/Netlify
+**Como funciona:**
+1. Push para `main` branch
+2. GitHub Actions roda `npm run build`
+3. Arquivos em `/dist` são deployados no GitHub Pages
+4. Site atualizado em minutos
+
+### Deploy manual
+```bash
+npm run build
+# Arquivos prontos em /dist
 ```
+
+## 📞 Contato e Links
+
+📧 **Email:** kairusstudiouxd@gmail.com
+
+🔗 **Redes Sociais:**
+- [Instagram](https://instagram.com)
+- [LinkedIn](https://linkedin.com)
+- [TikTok](https://tiktok.com)
+- [Behance](https://behance.com)
+
+## 📦 Dependências principais
+
+```json
+{
+  "react": "^18.2.0",
+  "vite": "^5.0.8",
+  "tailwindcss": "^3.4.0",
+  "gsap": "^3.12.2",
+  "framer-motion": "^10.16.4",
+  "hls.js": "^1.4.10"
+}
+```
+
+## 🔄 Deploy Automático
+
+Este repositório usa **GitHub Actions** para deploy automático:
+
+1. Arquivo: `.github/workflows/deploy-pages.yml`
+2. Trigger: Push para `main`
+3. Ação: Build + Deploy para GitHub Pages
+4. URL: https://whysoliv6.github.io/kairus-studio/
 
 ---
 
-**Template pronto para usar. Customize livremente!** 🎨
+**Status:** ✅ Ativo e mantido  
+**Última atualização:** Junho 2026  
+**Repositórios relacionados:** [whysoliv6/Site](https://github.com/whysoliv6/Site)
