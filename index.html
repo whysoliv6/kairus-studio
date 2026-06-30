@@ -1132,6 +1132,7 @@
 
       .process-canvas {
         padding-left: 28px;
+        position: relative;
       }
 
       .process-canvas::before {
@@ -1148,7 +1149,7 @@
         position: static;
         display: flex;
         flex-direction: column;
-        gap: clamp(40px, 10vh, 80px);
+        gap: clamp(48px, 8vh, 64px);
       }
 
       .process-step,
@@ -1156,7 +1157,7 @@
         text-align: left;
         align-items: flex-start;
         width: 100%;
-        padding-left: 8px;
+        padding-left: 12px;
         position: relative;
         top: auto;
         left: auto;
@@ -1170,15 +1171,15 @@
         background: var(--color-dark);
         border: 2px solid var(--color-primary);
         border-radius: 50%;
-        width: 12px;
-        height: 12px;
+        width: 10px;
+        height: 10px;
         position: absolute;
-        top: 8px;
+        top: 6px;
         left: -28px;
       }
 
       .process-num {
-        font-size: clamp(28px, 9vw, 40px);
+        font-size: clamp(24px, 7vw, 32px);
       }
 
       .process-desc {
