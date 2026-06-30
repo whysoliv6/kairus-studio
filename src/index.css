@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg: 0 0% 4%;
+  --surface: 0 0% 8%;
+  --text: 0 0% 96%;
+  --muted: 0 0% 53%;
+  --stroke: 0 0% 12%;
+  --accent: 0 0% 96%;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,18 +17,51 @@ html {
   scroll-behavior: smooth;
 }
 
-.clamp {
-  font-size: clamp(1.75rem, 7vw, 4.2rem);
+body {
+  @apply bg-bg text-text-primary;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
 }
 
-@media (min-width: 640px) {
-  .clamp {
-    font-size: clamp(2.5rem, 5vw, 4.2rem);
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+}
+
+.accent-gradient {
+  background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%);
+}
+
+.blur-in {
+  animation: blur-in 1s ease-out;
+}
+
+.name-reveal {
+  animation: name-reveal 1.2s ease-out;
+}
+
+@keyframes blur-in {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
   }
 }
 
-* {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+@keyframes name-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .liquid-glass {
